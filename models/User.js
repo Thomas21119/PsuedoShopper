@@ -30,6 +30,7 @@ User.init(
     underscored: true,
     modelName: "user",
   }
+
   /// add hooks for password hashing
 );
 
