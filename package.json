@@ -1,0 +1,20 @@
+{
+  "name": "chat-messenger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas21119/chat-messenger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomas21119/chat-messenger/issues"
+  },
+  "homepage": "https://github.com/Thomas21119/chat-messenger#readme"
+}
