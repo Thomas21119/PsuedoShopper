@@ -1,11 +1,11 @@
 const User = require("./User");
 const Message = require("./Message");
 
-Gallery.hasMany(Messages, {
+User.hasMany(Message, {
   foreignKey: "user_id",
 });
 
-Painting.belongsTo(User, {
+Message.belongsTo(User, {
   foreignKey: "user_id",
 });
 
