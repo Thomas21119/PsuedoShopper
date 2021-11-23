@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS messaging_db;
+CREATE DATABASE messaging_db 
