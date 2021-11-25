@@ -1,0 +1,30 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        
+        <a href='/'> <img class="logo" src="logofilename"> </a>
+        <a id="wallet" href="wallet">
+            $<span id="currentMoney">20</span>
+        </a>
+        <a href='/'><h1>(name)</h1></a>
+
+        {{#if loggedIn}}
+        <a href='../sell'> Sell </a> <a href='/'> Logout </a>
+
+        {{else}}
+        <a href='../login'> Login </a> <a href='../signup'> Sign Up </a>
+
+      </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+  </body>
+</html>
