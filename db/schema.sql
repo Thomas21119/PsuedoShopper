@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS messaging_db;
-CREATE DATABASE messaging_db 
+DROP DATABASE IF EXISTS shopping_db;
+CREATE DATABASE shopping_db; 
