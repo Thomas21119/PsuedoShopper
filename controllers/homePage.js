@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
+const { Product, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -8,6 +9,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get("/signup", async (req, res) => {
   try {
     res.render("signUp", {});
@@ -15,6 +17,7 @@ router.get("/signup", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get("/login", async (req, res) => {
   try {
     res.render("login", {});
@@ -23,5 +26,32 @@ router.get("/login", async (req, res) => {
   }
 });
 
+router.get("/dashboard", async (req, res) => {
+  try {
+    res.render("dashboard", {});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/wallet", async (req, res) => {
+  try {
+    res.render("wallet", {});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/product/:id", async (req, res) => {
+  try {
+    const postData = await Product.findByPk(req.params.id);
+
+    const product = postData.get({ plain: true });
+
+    res.render("product", { product, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
