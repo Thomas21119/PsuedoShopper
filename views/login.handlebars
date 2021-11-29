@@ -1,11 +1,21 @@
 <div class='card'>
   <h3>Login</h3>
   <form id='loginForm'>
-    <input id='loginUserName' type='text' placeholder='username' />
-    <input id='loginPassword' type='password' placeholder='password' />
-    <button type='submit'>Login</button>
-    <a href='/signup'> Or Sign Up Here </a>
+
+    <div class='form-group'>
+      <label for='username'>Username</label>
+      <input id='loginUserName' type='text' placeholder='username' />
+    </div>
+    <div class='form-group'>
+      <label for='password'>Password</label>
+      <input id='loginPassword' type='password' placeholder='password' />
+    </div>
+    <div class='btn-group'>
+      <button type='submit' id="btn-sign">Login</button>
+      <a href='/signUp.handlebars' id="btn-sign"> Or Sign Up Here </a>
+    </div>
   </form>
 </div>
 
-<script src='/javascript/login.js'></script>
+<script src='/javaScript/login.js'></script>
+
