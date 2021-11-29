@@ -11,6 +11,10 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    cost:{
+      type: DataTypes.INTEGER,
+      allowNull:false,    
+    },
     product: {
       type: DataTypes.STRING,
       allowNull: false,

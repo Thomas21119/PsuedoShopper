@@ -2,34 +2,69 @@ const { Product } = require('../models');
 
 const productData = [
   {
-    product_name: 'Plain T-Shirt',
-    price: 14.99,
-    stock: 14,
-    category_id: 1,
+    product: "Watch",
+    user_id: 1,
+    cost:50,
   },
   {
-    product_name: 'Running Sneakers',
-    price: 90.0,
-    stock: 25,
-    category_id: 5,
+    product: "Phone",
+    user_id: 2,
+    cost:40,
   },
   {
-    product_name: 'Branded Baseball Hat',
-    price: 22.99,
-    stock: 12,
-    category_id: 4,
+    product: "Tablet",
+    user_id: 3,
+    cost:100,
   },
   {
-    product_name: 'Top 40 Music Compilation Vinyl Record',
-    price: 12.99,
-    stock: 50,
-    category_id: 3,
+    product: "Laptop",
+    user_id: 4,
+    cost:150,
   },
   {
-    product_name: 'Cargo Shorts',
-    price: 29.99,
-    stock: 22,
-    category_id: 2,
+    product: "Shirt",
+    user_id: 1,
+    cost: 20,
+  },
+  {
+    product: "Shoes",
+    user_id: 2,
+    cost:40,
+  },
+  {
+    product: "Jackets",
+    user_id: 3,
+    cost:50,
+  },
+  {
+    product: "Coffee",
+    user_id: 4,
+    cost:10,
+  },
+  {
+    product: "Sweater",
+    user_id: 1,
+    cost:20,
+  },
+  {
+    product: "Jeans",
+    user_id: 2,
+    cost:25,
+  },
+  {
+    product: "Candles",
+    user_id: 3,
+    cost:05,
+  },
+  {
+    product: "Towels",
+    user_id: 4,
+    cost:10,
+  },
+  {
+    product: "Umbrella",
+    user_id: 1,
+    cost:10,
   },
 ];
 
