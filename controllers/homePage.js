@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { Product, User } = require("../models");
+const { Product, User, Wallet } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -36,6 +36,11 @@ router.get("/dashboard", async (req, res) => {
 
 router.get("/wallet", async (req, res) => {
   try {
+    const userWallet = await Wallet.findOne({
+      where: {
+        //user: req.body.user
+      },
+    });
     res.render("wallet", {});
   } catch (err) {
     res.status(500).json(err);
