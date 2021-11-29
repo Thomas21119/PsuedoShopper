@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Message extends Model {}
+class Wallet extends Model {}
 
-Message.init(
+Wallet.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,8 +11,8 @@ Message.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    text: {
-      type: DataTypes.STRING,
+    credits: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
     user_id: {
@@ -29,8 +29,8 @@ Message.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "message",
+    modelName: "wallet",
   }
 );
 
-module.exports = Message;
+module.exports = Wallet;
