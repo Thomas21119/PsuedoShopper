@@ -19,10 +19,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    credits: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
