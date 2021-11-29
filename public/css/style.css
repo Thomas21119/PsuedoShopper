@@ -1,0 +1,28 @@
+header {
+  width: 100%;
+  background-color: #5289b5;
+}
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button {
+  background-color: #edf2f3;
+  padding: 10%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+a {
+  display: flex;
+  color: #1f3541;
+  width: 10%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
