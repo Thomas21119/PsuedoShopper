@@ -16,6 +16,7 @@ User.hasOne(Wallet, {
 
 Wallet.belongsTo(User, {
   foreignKey: "user_id",
+
 });
 
 module.exports = { User, Product, Wallet };
