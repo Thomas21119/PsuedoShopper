@@ -10,8 +10,15 @@ const signup = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      console.log('response is ok test');
-      document.location.replace('/');
+      const walletResponse = await fetch("/api/users/createWallet", {
+        method: "POST",
+        body: JSON.stringify({ username }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (walletResponse.ok) {
+        document.location.replace("/");
+      }
+
     } else {
       console.log(response.status);
       console.log('failedtest');
