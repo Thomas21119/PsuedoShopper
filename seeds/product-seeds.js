@@ -1,70 +1,70 @@
-const { Product } = require('../models');
+const { Product } = require("../models");
 
 const productData = [
   {
-    product: "Watch",
+    category_id: 1,
     user_id: 1,
-    cost:50,
+    cost: 50,
   },
   {
-    product: "Phone",
+    category_id: 2,
     user_id: 2,
-    cost:40,
+    cost: 40,
   },
   {
-    product: "Tablet",
+    category_id: 3,
     user_id: 3,
-    cost:100,
+    cost: 100,
   },
   {
-    product: "Laptop",
+    category_id: 3,
     user_id: 4,
-    cost:150,
+    cost: 150,
   },
   {
-    product: "Shirt",
+    category_id: 4,
     user_id: 1,
     cost: 20,
   },
   {
-    product: "Shoes",
+    category_id: 4,
     user_id: 2,
-    cost:40,
+    cost: 40,
   },
   {
-    product: "Jackets",
+    category_id: 5,
     user_id: 3,
-    cost:50,
+    cost: 50,
   },
   {
-    product: "Coffee",
+    category_id: 5,
     user_id: 4,
-    cost:10,
+    cost: 10,
   },
   {
-    product: "Sweater",
+    category_id: 6,
     user_id: 1,
-    cost:20,
+    cost: 20,
   },
   {
-    product: "Jeans",
+    category_id: 8,
     user_id: 2,
-    cost:25,
+    cost: 25,
   },
   {
-    product: "Candles",
+    category_id: 9,
     user_id: 3,
-    cost:05,
+    cost: 05,
   },
   {
-    product: "Towels",
+    category_id: 3,
     user_id: 4,
-    cost:10,
+    cost: 10,
   },
   {
-    product: "Umbrella",
+    category_id: 2,
     user_id: 1,
-    cost:10,
+    cost: 10,
   },
 ];
 
