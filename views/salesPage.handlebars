@@ -1,8 +1,17 @@
+<h2>salesPage route</h2>
+
 <div class='search'>
+  <h3>add products that the user owns maybe allow them to set price?</h3>
   <label for='searchBar'>Search</label>
   <input type='text' placeholder='Search' />
 
   <ul>
     ITEMS HERE
   </ul>
+    {{#if products}}
+    {{#each products as |product|}}
+    {{> productCard}}
+    
+    {{/each}}
+    {{/if}}
 </div>

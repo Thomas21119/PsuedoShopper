@@ -4,20 +4,23 @@ const { Product, User, Wallet } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    if (req.session.logged_in) {
-      const walletData = await Wallet.findOne({
-        where: {
-          user_id: req.session.user_id,
-        },
-      });
-      if (walletData) {
-        const wallet = walletData.get({ plain: true });
+    const productData = await Product.findAll({});
+    // if (req.session.logged_in) {
+    //   const walletData = await Wallet.findOne({
+    //     where: {
+    //       user_id: req.session.user_id,
+    //     },
+    //   });
+    //   if (walletData) {
+    //     const wallet = walletData.get({ plain: true });
 
-        res.render("salesPage", { wallet, logged_in: req.session.logged_in });
-      }
-    } else {
-    }
-    res.render("salesPage", { logged_in: req.session.logged_in });
+    //     res.render("salesPage", { wallet, logged_in: req.session.logged_in });
+    //   }
+    // } else {
+    // }
+    const products = productData.map((product) => product.get({ plain: true }));
+
+    res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
