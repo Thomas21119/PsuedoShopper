@@ -1,22 +1,19 @@
 const router = require("express").Router();
 const { Product } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.put("/buy/:id", async (req, res) => {
+router.put("/buy/:id", withAuth, async (req, res) => {
   try {
-    console.log(req.params.id, req.session.user_id);
-    const productPurchased = await Product.update(
-      { user_id: req.session.user_id },
-      {
-        where: {
-          id: res.params.id,
-        },
-      }
-    );
+    const productPurchased = await Product.findByPk(req.params.id);
+
     if (!productPurchased) {
       res.status(400).json({ message: "cant find the id of this product" });
       return;
     }
-    res.status.json(productPurchased);
+
+    productPurchased.user_id = req.session.user_id;
+
+    res.status(200).json(productPurchased);
   } catch (err) {
     res.status(500).json(err);
   }
