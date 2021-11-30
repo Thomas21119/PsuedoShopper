@@ -1,34 +1,35 @@
-<!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
       <nav>
-        
-        <a href='/'> <img class="logo" src="logofilename"> </a>
+
+        <a href="/"> <img class="logo" src="logofilename" /> </a>
         {{#if logged_in}}
-        <a id="wallet" href="/wallet">
-            <span id="currentMoney">wallet:$20</span>
-        </a>
+          <a id="wallet" href="/wallet">
+            wallet:$<span id="currentMoney">20</span>
+          </a>
         {{/if}}
-        <a href='/'><h1>(Website name)</h1></a>
+        <a href="/"><h1>(Website name)</h1></a>
 
         {{#if logged_in}}
-        <a href='../sell'> Sell </a> <a> <button id="logoutBtn"> Logout </button> </a>
-        <script src="/javascript/logout.js"></script>
+          <a href="../sell"> Sell </a>
+          <a> <button id="logoutBtn"> Logout </button> </a>
+          <script src="/javascript/logout.js"></script>
         {{else}}
-        <a href='../login'> <button> Login </button> </a> <a href='../signup'> <button> Sign Up </button> </a>
+          <a href="../login"> <button> Login </button> </a>
+          <a href="../signup"> <button> Sign Up </button> </a>
         {{/if}}
       </nav>
     </header>
     <main>
-        {{{body}}}
+      {{{body}}}
     </main>
   </body>
 </html>
