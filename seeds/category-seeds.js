@@ -1,24 +1,47 @@
-const { Category } = require('../models');
-const Message = require('../models/Message');
+const { Category } = require("../models");
 
-const categoryData = [
+const CategoryData = [
   {
-    category_name: 'Shirts',
+    type: "Watch",
   },
   {
-    category_name: 'Shorts',
+    type: "Phone",
   },
   {
-    category_name: 'Music',
+    type: "Tablet",
   },
   {
-    category_name: 'Hats',
+    type: "Laptop",
   },
   {
-    category_name: 'Shoes',
+    type: "Shirt",
+  },
+  {
+    type: "Shoes",
+  },
+  {
+    type: "Jackets",
+  },
+  {
+    type: "Coffee",
+  },
+  {
+    type: "Sweater",
+  },
+  {
+    type: "Jeans",
+  },
+  {
+    type: "Candles",
+  },
+  {
+    type: "Towels",
+  },
+  {
+    type: "Umbrella",
   },
 ];
 
-const seedCategories = () => Message.bulkCreate(categoryData);
+const seedCategories = () => Category.bulkCreate(CategoryData);
 
 module.exports = seedCategories;

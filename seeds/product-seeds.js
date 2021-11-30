@@ -1,35 +1,81 @@
-const { Product } = require('../models');
+const { Product } = require("../models");
 
 const productData = [
   {
-    product_name: 'Plain T-Shirt',
-    price: 14.99,
-    stock: 14,
     category_id: 1,
+    user_id: 1,
+    cost: 50,
   },
   {
-    product_name: 'Running Sneakers',
-    price: 90.0,
-    stock: 25,
-    category_id: 5,
-  },
-  {
-    product_name: 'Branded Baseball Hat',
-    price: 22.99,
-    stock: 12,
-    category_id: 4,
-  },
-  {
-    product_name: 'Top 40 Music Compilation Vinyl Record',
-    price: 12.99,
-    stock: 50,
-    category_id: 3,
-  },
-  {
-    product_name: 'Cargo Shorts',
-    price: 29.99,
-    stock: 22,
     category_id: 2,
+    user_id: 2,
+    cost: 40,
+    forSale: true,
+  },
+  {
+    category_id: 3,
+    user_id: 3,
+    cost: 100,
+    forSale: true,
+  },
+  {
+    category_id: 3,
+    user_id: 4,
+    cost: 150,
+    forSale: true,
+  },
+  {
+    category_id: 4,
+    user_id: 1,
+    cost: 666,
+  },
+  {
+    category_id: 4,
+    user_id: 2,
+    cost: 40,
+    forSale: true,
+  },
+  {
+    category_id: 5,
+    user_id: 3,
+    cost: 50,
+    forSale: true,
+  },
+  {
+    category_id: 5,
+    user_id: 4,
+    cost: 10,
+    forSale: true,
+  },
+  {
+    category_id: 6,
+    user_id: 1,
+    cost: 20,
+    forSale: true,
+  },
+  {
+    category_id: 8,
+    user_id: 2,
+    cost: 25,
+    forSale: true,
+  },
+  {
+    category_id: 9,
+    user_id: 3,
+    cost: 5,
+    forSale: true,
+  },
+  {
+    category_id: 3,
+    user_id: 4,
+    cost: 10,
+    forSale: true,
+  },
+  {
+    category_id: 2,
+    user_id: 1,
+    cost: 10,
+    forSale: true,
   },
 ];
 
