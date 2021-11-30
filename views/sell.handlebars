@@ -1,14 +1,13 @@
 <div>
   {{#if user.product}}
-
-  <form>
-    <label for='itemName'>What are you selling:</label>
-    <input id='itemName' name='itemName' type='text' />
-    <label for='newItemPrice'>How much are you selling this for: $</label>
-    <input id='newItemPrice' name='newItemPrice' type='number' />
-  </form>
+    <form>
+      <label for="itemName">What are you selling:</label>
+      <input id="itemName" name="itemName" type="text" />
+      <label for="newItemPrice">How much are you selling this for: $</label>
+      <input id="newItemPrice" name="newItemPrice" type="number" />
+    </form>
   {{else}}
-  <h2>You have no products to sell</h2>
+    <h2>You have no products to sell</h2>
   {{/if}}
-  
+
 </div>
