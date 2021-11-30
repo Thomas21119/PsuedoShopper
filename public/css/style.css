@@ -9,24 +9,39 @@ header nav {
   align-items: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 /*login*/
-.form-group{
+.form-group {
   font-weight: bold;
+  margin-top: 2%;
 }
 
-#form-login, #form-signin{
-  margin-top:20px;
+#form-login,
+#form-signin {
+  margin-top: 20px;
 }
 
-.text-color{
-  color:#ffc107;
+.text-color {
+  color: #ffc107;
 }
 
-#btn-sign, .btn-group{
+#btn-sign,
+.btn-group {
   margin-top: 5px;
   margin-left: -5px;
   cursor: pointer;
-  display:inline-block;
+  display: inline-block;
   font-weight: 400;
   /* text-align: center;
   vertical-align: middle; */
@@ -34,48 +49,54 @@ header nav {
   font-size: 1rem;
   border-radius: 0.25rem;
   padding: 0.375rem 0.75rem;
-  height:40px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn-color{
-  color:#212529;
+.btn-color {
+  color: #212529;
   border-color: #ffc107;
   background-color: #ffc107;
 }
 
-#loginUserName, #loginPassword, #nameSignup, #passwordSignup{
-  display:block;
-  width:20%;
-  padding:0.375rem 0.75rem;
+#loginUserName,
+#loginPassword,
+#nameSignup,
+#passwordSignup {
+  display: block;
+  width: 20%;
+  padding: 0.375rem 0.75rem;
   font-weight: 400;
   line-height: 1.5;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
 
-label{
+label {
   margin-top: 15px;
-  display:inline-block;
+  display: inline-block;
   margin-bottom: 0.5rem;
-  cursor:default;
+  cursor: default;
   position: relative;
-  width:100%;
+  width: 100%;
 }
 
-@media(min-width: 576px){
-  .username, .password{
-    flex:0 0 33.33%;
+#topUpSubmit {
+  width: 20%;
+  height: 1%;
+}
+
+@media (min-width: 576px) {
+  .username,
+  .password {
+    flex: 0 0 33.33%;
     max-width: 33033%;
   }
 }
 
-
-
-
 button {
   background-color: #edf2f3;
-  padding: 10%;
   height: 50%;
   border-radius: 20px;
 }
