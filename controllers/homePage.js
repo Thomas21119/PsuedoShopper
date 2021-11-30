@@ -89,4 +89,17 @@ router.get("/sell", async (req, res) => {
   }
 });
 
+router.get("/purchase/:id", async (req, res) => {
+  try {
+    const postData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
+
+    const product = postData.get({ plain: true });
+
+    res.render("purchase", { product, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
