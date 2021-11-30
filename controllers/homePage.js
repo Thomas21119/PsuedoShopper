@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { Product, User, Wallet } = require("../models");
+const { Product, User, Wallet, Category } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    const productData = await Product.findAll({});
+    const productData = await Product.findAll({
+      include: [{ model: Category }],
+    });
     // if (req.session.logged_in) {
     //   const walletData = await Wallet.findOne({
     //     where: {
@@ -19,7 +21,7 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
-
+    console.log(products);
     res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -65,7 +67,9 @@ router.get("/wallet", async (req, res) => {
 
 router.get("/product/:id", async (req, res) => {
   try {
-    const postData = await Product.findByPk(req.params.id);
+    const postData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
 
     const product = postData.get({ plain: true });
 

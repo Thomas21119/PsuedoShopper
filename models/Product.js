@@ -11,13 +11,22 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    cost:{
+    cost: {
       type: DataTypes.INTEGER,
-      allowNull:false,    
-    },
-    product: {
-      type: DataTypes.STRING,
       allowNull: false,
+    },
+    forSale: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "category",
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

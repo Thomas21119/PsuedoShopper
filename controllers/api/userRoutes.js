@@ -4,9 +4,9 @@ const { User, Wallet } = require("../../models");
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    // const usersWallet = await Wallet.create({
+    // const userWallet = await Wallet.create({
     //   user_id: userData.id,
-    //   credits: 100,
+    //   credits: 200.0,
     // });
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -14,6 +14,7 @@ router.post("/", async (req, res) => {
 
       res.status(200).json(userData);
     });
+    // res.status(200).json(userWallet);
   } catch (err) {
     res.status(400).json(err);
   }
