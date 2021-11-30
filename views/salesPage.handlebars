@@ -9,9 +9,10 @@
     ITEMS HERE
   </ul>
     {{#if products}}
-    {{#each products as |product|}}
-    {{> productCard}}
-    
-    {{/each}}
+      {{#each products as |product|}}
+        {{#if product.forSale}}
+        {{> productCard}}
+        {{/if}}
+      {{/each}}
     {{/if}}
 </div>

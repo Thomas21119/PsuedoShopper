@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
-    console.log(products);
     res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -54,11 +53,12 @@ router.get("/dashboard", async (req, res) => {
 
 router.get("/wallet", async (req, res) => {
   try {
-    const userWallet = await Wallet.findOne({
-      where: {
-        //user: req.body.user
-      },
-    });
+    // const userWallet = await Wallet.findOne({
+    //   where: {
+    //     //user: req.body.user
+    //   },
+    // });
+    console.log("here");
     res.render("wallet", { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
