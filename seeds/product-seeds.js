@@ -23,6 +23,7 @@ const productData = [
     category_id: 4,
     user_id: 4,
     cost: 150,
+    forSale: true,
   },
   {
     category_id: 4,
@@ -34,6 +35,7 @@ const productData = [
     category_id: 4,
     user_id: 6,
     cost: 40,
+    forSale: true,
   },
   {
     category_id: 5,
@@ -45,6 +47,7 @@ const productData = [
     category_id: 5,
     user_id: 4,
     cost: 10,
+    forSale: true,
   },
   {
     category_id: 6,
@@ -74,6 +77,7 @@ const productData = [
     category_id: 2,
     user_id: 1,
     cost: 10,
+    forSale: true,
   },
 ];
 

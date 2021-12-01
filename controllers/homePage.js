@@ -43,7 +43,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     res.render("dashboard", { logged_in: req.session.logged_in });
   } catch (err) {
@@ -51,7 +51,7 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-router.get("/wallet", async (req, res) => {
+router.get("/wallet", withAuth, async (req, res) => {
   try {
     // const userWallet = await Wallet.findOne({
     //   where: {
@@ -65,7 +65,7 @@ router.get("/wallet", async (req, res) => {
   }
 });
 
-router.get("/product/:id", async (req, res) => {
+router.get("/product/:id", withAuth, async (req, res) => {
   try {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
@@ -79,7 +79,7 @@ router.get("/product/:id", async (req, res) => {
   }
 });
 
-router.get("/sell", async (req, res) => {
+router.get("/sell", withAuth, async (req, res) => {
   try {
     console.log("hello");
     const userProductsData = await Product.findAll({
@@ -98,7 +98,7 @@ router.get("/sell", async (req, res) => {
   }
 });
 
-router.get("/purchase/:id", async (req, res) => {
+router.get("/purchase/:id", withAuth, async (req, res) => {
   try {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
