@@ -12,6 +12,16 @@
       <section class="container">
         {{#each products as |product|}}
           {{#if product.forSale}}
+
+          <div class="new card">
+            <h2>{{category.type}}</h2>
+            <p>Price: ${{cost}}</p>
+            <a href="">Add Now</a>
+          </div>
+           {{/if}}
+          {{/each}}
+        </section>
+
            {{> productCard}}
           {{/if}}
         {{/each}}

@@ -1,4 +1,4 @@
-header {
+/* header {
   width: 100%;
   background-color: #5289b5;
 }
@@ -7,7 +7,7 @@ header nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
+} */
 
 main {
   display: flex;
@@ -27,9 +27,10 @@ form {
   margin-top: 2%;
 }
 
-#form-login,
-#form-signin {
-  margin-top: 20px;
+
+#form-login, #form-signin{
+  margin-top:20px;
+  margin-left: 15px;
 }
 
 .text-color {
@@ -54,8 +55,8 @@ form {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn-color {
-  color: #212529;
+.btn-group .btn-color{
+  color:#212529;
   border-color: #ffc107;
   background-color: #ffc107;
 }
@@ -102,13 +103,14 @@ label {
   box-sizing: border-box;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: aqua;
+  background-color: #3078b4;
 }
 
-.card {
-  background-color: #5289b5;
-  width: 220px;
-  margin: 14px;
+
+.new{
+  background-color: #3d48ac;
+  width:220px;
+  margin:14px;
   text-align: center;
   /* background-color: aqua; */
   height: 200px;
@@ -116,31 +118,23 @@ label {
   border-radius: 15px;
 }
 
-.card:hover {
+.new:hover{
   background-color: rgb(225, 237, 238);
   color: rgb(5, 21, 92);
   transform: scale(1.03);
   transition: all 1s ease;
 }
 
-/* .card-image{
-  text-align: center;
-  /* background-color: aqua; */
-/* height:150px;
-  margin-bottom: 15px;
-  border-radius: 15px 15px 0 0;
-/* } */
-
-.card h2 {
-  padding: 10px;
+.new h2{
+  padding:10px;
 }
 
-.card p {
+.new p{
   padding: 10px;
   font-size: 15px;
 }
 
-.card a {
+.new a{
   background-color: rgb(49, 44, 44);
   color: white;
   padding: 10px 15px;
@@ -148,25 +142,51 @@ label {
   text-align: center;
   margin: 15px 40px;
   text-decoration: none;
+
 }
 
-button {
-  background-color: #edf2f3;
-  height: 50%;
-  border-radius: 20px;
+/*Navbar*/
+.techblog-nav {
+  background-image: linear-gradient(rgb(9, 0, 128), rgba(0, 0, 0, 0.747));
 }
 
-.btn-group a {
-  display: flex;
-  color: #1f3541;
-  width: 10%;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: 600;
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: xx-large;
+  text-shadow: 0px .5px #644420;
+  color:#feae51;
 }
+
+.nav-item a{
+  color:#feae51;
+  text-decoration: none;
+  font-size: larger;
+  margin-right: 10px;
+}
+.navbar-brand:hover, .nav-item a:hover{
+  color:#feae51;
+  text-decoration: none;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: #db2565;
+  border-width: medium;
+} 
+
+header nav .name{
+  font-size: 50px;
+}
+
+main {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+  /* width: 100vw; */
+}
+
+
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
