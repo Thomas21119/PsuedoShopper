@@ -1,31 +1,14 @@
-<h2>salesPage route</h2>
+<h2>Items currently for sale!</h2>
 
-<div class='search'>
-  <h3>add products that the user owns maybe allow them to set price?</h3>
-  <label for='searchBar'>Search</label>
-  <input type='text' placeholder="Search" />
-
-  <ul>
-    ITEMS HERE
-  </ul>
-    {{#if products.length}}
-      <section class="container">
-        {{#each products as |product|}}
-          {{#if product.forSale}}
-
-          <div class="new card">
-            <h2>{{category.type}}</h2>
-            <p>Price: ${{cost}}</p>
-            <a href="">Add Now</a>
-          </div>
-           {{/if}}
-          {{/each}}
-        </section>
-
-           {{> productCard}}
-          {{/if}}
-        {{/each}}
-      </section>
-    {{/if}}
+  {{#if products.length}}
+    <section class="container">
+      {{#each products as |product|}}
+        {{#if product.forSale}}
+          {{> productCard}}
+        {{/if}}
+      {{/each}}
+    </section>
+    {{else}}
+    <h2>No Items currently for sale!</h2>
+  {{/if}}
     
-</div>

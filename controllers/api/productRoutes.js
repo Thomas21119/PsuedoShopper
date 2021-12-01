@@ -22,4 +22,20 @@ router.put("/buy/:id", withAuth, async (req, res) => {
   }
 });
 
+router.put("/forSale", withAuth, async (req, res) => {
+  try {
+    const productSelling = await Product.findByPk(req.body.id);
+
+    productSelling.cost = req.body.price;
+    productSelling.forSale = true;
+
+    await productSelling.save();
+
+    res.status(200).json(productSelling);
+    res.render("/", { logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
