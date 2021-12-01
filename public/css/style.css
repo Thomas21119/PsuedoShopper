@@ -95,10 +95,9 @@ label {
   }
 }
 
-
 /*card*/
 
-.container{
+.container {
   display: flex;
   box-sizing: border-box;
   justify-content: center;
@@ -106,50 +105,49 @@ label {
   background-color: aqua;
 }
 
-.card{
+.card {
   background-color: #5289b5;
-  width:220px;
-  margin:14px;
+  width: 220px;
+  margin: 14px;
   text-align: center;
   /* background-color: aqua; */
-  height:200px;
+  height: 200px;
   margin-bottom: 15px;
   border-radius: 15px;
 }
 
-.card:hover{
+.card:hover {
   background-color: rgb(225, 237, 238);
-  color:rgb(5, 21, 92);
-  transform:scale(1.03);
+  color: rgb(5, 21, 92);
+  transform: scale(1.03);
   transition: all 1s ease;
 }
 
 /* .card-image{
   text-align: center;
   /* background-color: aqua; */
-  /* height:150px;
+/* height:150px;
   margin-bottom: 15px;
   border-radius: 15px 15px 0 0;
 /* } */
 
-.card h2{
-  padding:10px;
+.card h2 {
+  padding: 10px;
 }
 
-.card p{
+.card p {
   padding: 10px;
   font-size: 15px;
 }
 
-.card a{
+.card a {
   background-color: rgb(49, 44, 44);
-  color:white;
+  color: white;
   padding: 10px 15px;
   /* display:block; */
   text-align: center;
   margin: 15px 40px;
   text-decoration: none;
-
 }
 
 button {
@@ -167,4 +165,8 @@ button {
   align-items: center;
   font-size: 20px;
   font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
