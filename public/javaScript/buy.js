@@ -4,7 +4,7 @@ const buy = async () => {
     const cost = document.querySelector("#cost").value.trim();
     const currentOwner = document.querySelector("#productOwner").value.trim();
 
-    const userBuy = await fetch(`/api/users/walletBuy`, {
+    const userBuy = await fetch(`/api/wallet/walletBuy`, {
       method: "PUT",
       body: JSON.stringify({
         cost,
@@ -14,7 +14,7 @@ const buy = async () => {
       },
     });
     if (userBuy.ok) {
-      const userSell = await fetch(`/api/users/walletSell`, {
+      const userSell = await fetch(`/api/wallet/walletSell`, {
         method: "PUT",
         body: JSON.stringify({
           cost,
