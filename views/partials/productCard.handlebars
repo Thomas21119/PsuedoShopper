@@ -1,9 +1,10 @@
-<article class="productCard">
-    <a href="product/{{id}}">
-    <div class="card">
+    <a href="product/{{id}}">    
+    <div class="new card">
             <h2>{{category.type}}</h2>
+            {{!-- {{#if (user_owns req.session.user_id user_id)}}
+            <h2>It is owned by this user</h2>
+            {{/if}} --}}
             <p>Price: ${{cost}}</p>
             <p>Buy Now</p>
     </div>
     </a>
-</article>

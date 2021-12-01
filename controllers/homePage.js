@@ -82,16 +82,11 @@ router.get("/product/:id", withAuth, async (req, res) => {
 
 router.get("/sell", withAuth, async (req, res) => {
   try {
-    console.log("hello");
     const userProductsData = await Product.findAll({
       include: [{ model: Category }],
       where: { user_id: req.session.user_id },
     });
-    console.log("this is the pull", userProductsData);
-    console.log("yup before");
     const product = userProductsData.map((Data) => Data.get({ plain: true }));
-    console.log("yup after");
-    console.log("this is plain", product);
 
     res.render("sell", { product, logged_in: req.session.logged_in });
   } catch (err) {
