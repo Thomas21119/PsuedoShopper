@@ -70,6 +70,63 @@ label{
   }
 }
 
+/*card*/
+
+.container{
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: aqua;
+}
+
+.card{
+  background-color: #5289b5;
+  width:220px;
+  margin:14px;
+  text-align: center;
+  /* background-color: aqua; */
+  height:200px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.card:hover{
+  background-color: rgb(225, 237, 238);
+  color:rgb(5, 21, 92);
+  transform:scale(1.03);
+  transition: all 1s ease;
+}
+
+/* .card-image{
+  text-align: center;
+  /* background-color: aqua; */
+  /* height:150px;
+  margin-bottom: 15px;
+  border-radius: 15px 15px 0 0;
+/* } */
+
+.card h2{
+  padding:10px;
+}
+
+.card p{
+  padding: 10px;
+  font-size: 15px;
+}
+
+.card a{
+  background-color: rgb(49, 44, 44);
+  color:white;
+  padding: 10px 15px;
+  /* display:block; */
+  text-align: center;
+  margin: 15px 40px;
+  text-decoration: none;
+
+}
+
+
 
 
 
@@ -80,7 +137,7 @@ button {
   border-radius: 20px;
 }
 
-a {
+.btn-group a {
   display: flex;
   color: #1f3541;
   width: 10%;
