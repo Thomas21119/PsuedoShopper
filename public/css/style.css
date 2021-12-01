@@ -9,25 +9,40 @@ header nav {
   align-items: center;
 } */
 
-/*login*/
-.form-group{
-  font-weight: bold;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*login*/
+.form-group {
+  font-weight: bold;
+  margin-top: 2%;
+}
+
 
 #form-login, #form-signin{
   margin-top:20px;
   margin-left: 15px;
 }
 
-.text-color{
-  color:#ffc107;
+.text-color {
+  color: #ffc107;
 }
 
-#btn-sign, .btn-group{
+#btn-sign,
+.btn-group {
   margin-top: 5px;
   margin-left: -5px;
   cursor: pointer;
-  display:inline-block;
+  display: inline-block;
   font-weight: 400;
   /* text-align: center;
   vertical-align: middle; */
@@ -35,8 +50,9 @@ header nav {
   font-size: 1rem;
   border-radius: 0.25rem;
   padding: 0.375rem 0.75rem;
-  height:40px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 40px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn-group .btn-color{
@@ -45,35 +61,44 @@ header nav {
   background-color: #ffc107;
 }
 
-#loginUserName, #loginPassword, #nameSignup, #passwordSignup{
-  display:block;
-  width:20%;
-  padding:0.375rem 0.75rem;
+#loginUserName,
+#loginPassword,
+#nameSignup,
+#passwordSignup {
+  display: block;
+  width: 20%;
+  padding: 0.375rem 0.75rem;
   font-weight: 400;
   line-height: 1.5;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
 
-label{
+label {
   margin-top: 15px;
-  display:inline-block;
+  display: inline-block;
   margin-bottom: 0.5rem;
-  cursor:default;
+  cursor: default;
   position: relative;
-  width:100%;
+  width: 100%;
 }
 
-@media(min-width: 576px){
-  .username, .password{
-    flex:0 0 33.33%;
+#topUpSubmit {
+  width: 20%;
+  height: 1%;
+}
+
+@media (min-width: 576px) {
+  .username,
+  .password {
+    flex: 0 0 33.33%;
     max-width: 33033%;
   }
 }
 
 /*card*/
 
-.container{
+.container {
   display: flex;
   box-sizing: border-box;
   justify-content: center;
@@ -81,21 +106,22 @@ label{
   background-color: #3078b4;
 }
 
+
 .new{
   background-color: #3d48ac;
   width:220px;
   margin:14px;
   text-align: center;
   /* background-color: aqua; */
-  height:200px;
+  height: 200px;
   margin-bottom: 15px;
   border-radius: 15px;
 }
 
 .new:hover{
   background-color: rgb(225, 237, 238);
-  color:rgb(5, 21, 92);
-  transform:scale(1.03);
+  color: rgb(5, 21, 92);
+  transform: scale(1.03);
   transition: all 1s ease;
 }
 
@@ -110,12 +136,13 @@ label{
 
 .new a{
   background-color: rgb(49, 44, 44);
-  color:white;
+  color: white;
   padding: 10px 15px;
   /* display:block; */
   text-align: center;
   margin: 15px 40px;
   text-decoration: none;
+
 }
 
 /*Navbar*/
@@ -156,27 +183,10 @@ main {
   /* width: 100vw; */
 }
 
-ul li {
-  list-style-type: none;
+
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-
-
-/* 
-button {
-  background-color: #edf2f3;
-  padding: 10%;
-  height: 50%;
-  border-radius: 20px;
-}
-
-.btn-group a {
-  display: flex;
-  color: #1f3541;
-  width: 10%;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: 600;
-} */

@@ -1,7 +1,9 @@
 <h3>Solo product route</h3>
 <input type="hidden" id="product_id" name="product_id" value="{{product.id}}">
 <input type="hidden" id="cost" name="cost" value="{{product.cost}}">
+<input type="hidden" id="productOwner" name="productOwner" value="{{product.user_id}}">
 <article class="productCard">
+  
   <div >
     {{> productBuy}}
     

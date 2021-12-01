@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
+    console.log(products);
     res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -43,7 +44,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     res.render("dashboard", { logged_in: req.session.logged_in });
   } catch (err) {
@@ -51,7 +52,7 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-router.get("/wallet", async (req, res) => {
+router.get("/wallet", withAuth, async (req, res) => {
   try {
     // const userWallet = await Wallet.findOne({
     //   where: {
@@ -65,7 +66,7 @@ router.get("/wallet", async (req, res) => {
   }
 });
 
-router.get("/product/:id", async (req, res) => {
+router.get("/product/:id", withAuth, async (req, res) => {
   try {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
@@ -79,17 +80,26 @@ router.get("/product/:id", async (req, res) => {
   }
 });
 
-router.get("/sell", async (req, res) => {
+router.get("/sell", withAuth, async (req, res) => {
   try {
-    //user: req.body.user
+    console.log("hello");
+    const userProductsData = await Product.findAll({
+      include: [{ model: Category }],
+      where: { user_id: req.session.user_id },
+    });
+    console.log("this is the pull", userProductsData);
+    console.log("yup before");
+    const product = userProductsData.map((Data) => Data.get({ plain: true }));
+    console.log("yup after");
+    console.log("this is plain", product);
 
-    res.render("sell", { logged_in: req.session.logged_in });
+    res.render("sell", { product, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/purchase/:id", async (req, res) => {
+router.get("/purchase/:id", withAuth, async (req, res) => {
   try {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],

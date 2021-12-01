@@ -14,6 +14,8 @@ router.put("/buy/:id", withAuth, async (req, res) => {
     productPurchased.user_id = req.session.user_id;
     productPurchased.forSale = false;
 
+    await productPurchased.save();
+
     res.status(200).json(productPurchased);
   } catch (err) {
     res.status(500).json(err);
