@@ -25,7 +25,6 @@ router.post("/", async (req, res) => {
       res.json({ user: newUser, message: "You are now logged in!" });
     });
   } catch (err) {
-
     res.status(500).json(err);
   }
 });
@@ -111,6 +110,12 @@ router.put("/walletSell", async (req, res) => {
   currentOwner.wallet.credits = currentOwner.wallet.credits + req.body.cost;
 
   res.status(200).json(currentOwner);
+});
+
+router.put("/walletTopUp", async (req, res) => {
+  const walletData = await User.findByPk(req.body.currentOwner, {
+    include: { model: Wallet },
+  });
 });
 
 module.exports = router;

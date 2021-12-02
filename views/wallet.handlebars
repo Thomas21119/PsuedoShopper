@@ -1,20 +1,22 @@
 <h3>Wallet route</h3>
 
 <h3> Top Up: </h3>
-<form>
+<form id="topUpSubmit">
   <div class="form-group">
-    <label for="cardNumber" class="text-color">
+    <label for="topUpAmount" class="text-color">
       How Much Would you like to top up:
     </label>
-    <input id="cardNumber" type="number" placeholder="50" />
+    <input id="topUpAmount" type="number" placeholder="50" />
   </div>
   <div class="form-group">
     <label for="cardNumber" class="text-color">Card Number:</label>
     <input id="cardNumber" type="number" placeholder="0000000000000000" />
   </div>
   <div class="form-group">
-    <button type="submit" id="topUpSubmit" class="btn btn-color">
+    <button type="submit" class="btn btn-color">
       Confirm
     </button>
   </div>
 </form>
+
+<script src="/javaScript/topUp.js"></script>
