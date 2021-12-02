@@ -3,7 +3,13 @@ const buy = async () => {
     const id = document.querySelector("#product_id").value.trim();
     const cost = document.querySelector("#cost").value.trim();
     const currentOwner = document.querySelector("#productOwner").value.trim();
+    const credits = document.querySelector("#user_credits").value.trim();
 
+    if (credits < cost) {
+      //redirect maybe?
+      alert("Not enough money");
+      return;
+    }
     const userBuy = await fetch(`/api/wallet/walletBuy`, {
       method: "PUT",
       body: JSON.stringify({

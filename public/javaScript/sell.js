@@ -1,4 +1,4 @@
-const buy = async () => {
+const sell = async () => {
   try {
     const id = document.querySelector("#product_id").value.trim();
     const price = document.querySelector("#newItemPrice").value.trim();
@@ -14,9 +14,13 @@ const buy = async () => {
         "Content-Type": "application/json",
       },
     });
+    if (!userBuy.ok) {
+      return;
+    }
+    document.location.replace(`/`);
   } catch (err) {
     console.log(err);
   }
 };
 
-document.querySelector("#sellItem").addEventListener("submit", buy);
+document.querySelector("#sellItem").addEventListener("submit", sell);

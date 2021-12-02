@@ -2,10 +2,15 @@
  
   {{#if product}}
     {{#each product}}
-      {{>sellYourItems}}
+      <a href="sellItem/{{id}}">    
+        {{>productCard}}
+        <p>Sell this!</p>
+        </div>
+      </a>
     {{/each}}
-    <script src="/javascript/sell.js"></script>
+    
   {{else}}
     <h2>You have no products to sell</h2>
   {{/if}}
-</div>
+ 
+</div> 
