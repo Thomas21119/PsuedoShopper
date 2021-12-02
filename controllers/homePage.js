@@ -33,12 +33,16 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
-    console.log(products);
+
+
     res.render("salesPage", {
       products,
       logged_in: req.session.logged_in,
       userWallet,
     });
+
+    res.render("salesPage", { products, logged_in: req.session.logged_in });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -87,8 +91,11 @@ router.get("/product/:id", withAuth, async (req, res) => {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
     });
-
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Wallet }],
+    });
     const product = postData.get({ plain: true });
+
 
     res.render("product", {
       product,
@@ -107,6 +114,10 @@ router.get("/error", async (req, res) => {
     // console.log(req);
     // want to get error code to display on error screen
     res.render("error", { userWallet });
+
+    const user = userData.get({ plain: true });
+    res.render("product", { product, user, logged_in: req.session.logged_in });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -126,6 +137,20 @@ router.get("/sell", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
       userWallet,
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/sellItem/:id", withAuth, async (req, res) => {
+  try {
+    const sellProductsData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
+
+    const product = sellProductsData.get({ plain: true });
+
+    res.render("sellItem", { product, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
