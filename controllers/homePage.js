@@ -58,7 +58,6 @@ router.get("/wallet", withAuth, async (req, res) => {
     //     //user: req.body.user
     //   },
     // });
-    console.log("here");
     res.render("wallet", { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
