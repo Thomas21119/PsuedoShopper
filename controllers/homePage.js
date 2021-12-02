@@ -2,8 +2,20 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { Product, User, Wallet, Category } = require("../models");
 
+const wallet = async (currentUser) => {
+  const userWallet = await Wallet.findOne({
+    where: {
+      user_id: currentUser,
+    },
+  });
+  const currentWallet = userWallet.get({ plain: true });
+  console.log(currentWallet);
+  return currentWallet;
+};
+
 router.get("/", async (req, res) => {
   try {
+    const userWallet = await wallet(req.session.user_id);
     const productData = await Product.findAll({
       include: [{ model: Category }],
     });
@@ -21,7 +33,16 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
+
+
+    res.render("salesPage", {
+      products,
+      logged_in: req.session.logged_in,
+      userWallet,
+    });
+
     res.render("salesPage", { products, logged_in: req.session.logged_in });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -29,7 +50,8 @@ router.get("/", async (req, res) => {
 
 router.get("/signup", async (req, res) => {
   try {
-    res.render("signUp", { logged_in: req.session.logged_in });
+    const userWallet = await wallet(req.session.user_id);
+    res.render("signUp", { logged_in: req.session.logged_in, userWallet });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,7 +59,8 @@ router.get("/signup", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    res.render("login", { logged_in: req.session.logged_in });
+    const userWallet = await wallet(req.session.user_id);
+    res.render("login", { logged_in: req.session.logged_in, userWallet });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -45,7 +68,8 @@ router.get("/login", async (req, res) => {
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    res.render("dashboard", { logged_in: req.session.logged_in });
+    const userWallet = await wallet(req.session.user_id);
+    res.render("dashboard", { logged_in: req.session.logged_in, userWallet });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -53,12 +77,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get("/wallet", withAuth, async (req, res) => {
   try {
-    // const userWallet = await Wallet.findOne({
-    //   where: {
-    //     //user: req.body.user
-    //   },
-    // });
-    res.render("wallet", { logged_in: req.session.logged_in });
+    const userWallet = await wallet(req.session.user_id);
+    console.log(userWallet);
+    res.render("wallet", { logged_in: req.session.logged_in, userWallet });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -66,6 +87,7 @@ router.get("/wallet", withAuth, async (req, res) => {
 
 router.get("/product/:id", withAuth, async (req, res) => {
   try {
+    const userWallet = await wallet(req.session.user_id);
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
     });
@@ -73,8 +95,29 @@ router.get("/product/:id", withAuth, async (req, res) => {
       include: [{ model: Wallet }],
     });
     const product = postData.get({ plain: true });
+
+
+    res.render("product", {
+      product,
+      logged_in: req.session.logged_in,
+      userWallet,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/error", async (req, res) => {
+  try {
+    const userWallet = await wallet(req.session.user_id);
+    // console.log(res);
+    // console.log(req);
+    // want to get error code to display on error screen
+    res.render("error", { userWallet });
+
     const user = userData.get({ plain: true });
     res.render("product", { product, user, logged_in: req.session.logged_in });
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -82,13 +125,18 @@ router.get("/product/:id", withAuth, async (req, res) => {
 
 router.get("/sell", withAuth, async (req, res) => {
   try {
+    const userWallet = await wallet(req.session.user_id);
     const userProductsData = await Product.findAll({
       include: [{ model: Category }],
       where: { user_id: req.session.user_id },
     });
     const product = userProductsData.map((Data) => Data.get({ plain: true }));
 
-    res.render("sell", { product, logged_in: req.session.logged_in });
+    res.render("sell", {
+      product,
+      logged_in: req.session.logged_in,
+      userWallet,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -110,13 +158,18 @@ router.get("/sellItem/:id", withAuth, async (req, res) => {
 
 router.get("/purchase/:id", withAuth, async (req, res) => {
   try {
+    const userWallet = await wallet(req.session.user_id);
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
     });
 
     const product = postData.get({ plain: true });
 
-    res.render("purchase", { product, logged_in: req.session.logged_in });
+    res.render("purchase", {
+      product,
+      logged_in: req.session.logged_in,
+      userWallet,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
