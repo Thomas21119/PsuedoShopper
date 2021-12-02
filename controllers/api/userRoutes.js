@@ -111,10 +111,4 @@ router.put("/walletSell", async (req, res) => {
   res.status(200).json(currentOwner);
 });
 
-router.put("/walletTopUp", async (req, res) => {
-  const walletData = await User.findByPk(req.body.currentOwner, {
-    include: { model: Wallet },
-  });
-});
-
 module.exports = router;

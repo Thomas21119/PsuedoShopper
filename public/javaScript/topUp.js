@@ -2,8 +2,7 @@ const topUp = async (event) => {
   event.preventDefault();
   try {
     const amount = document.querySelector("#topUpAmount").value;
-    console.log(amount);
-    const topUp1 = await fetch("/api/users/walletTopUp", {
+    const topUp = await fetch("/api/wallet/walletTopUp", {
       method: "PUT",
       body: JSON.stringify({
         amount,
@@ -12,9 +11,10 @@ const topUp = async (event) => {
         "Content-Type": "application/json",
       },
     });
-  } catch (err) {
-    console.log(err);
-  }
+    if (topUp.ok) {
+      document.location.replace(`/`);
+    }
+  } catch (err) {}
 };
 console.log();
 document.querySelector("#topUpSubmit").addEventListener("submit", topUp);
