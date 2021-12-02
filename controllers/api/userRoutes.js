@@ -41,8 +41,6 @@ router.post("/createWallet", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  console.log("login body", req.body);
-
   try {
     const userData = await User.findOne({
       where: {
@@ -87,8 +85,6 @@ router.put("/walletBuy", async (req, res) => {
 
   const newOwner = newOwnerData.get({ plain: true });
 
-  console.log("this is new owner", newOwner);
-
   if (newOwner.wallet.credits >= req.body.cost) {
     newOwner.wallet.credits = newOwner.wallet.credits - req.body.cost;
   } else {
@@ -103,9 +99,6 @@ router.put("/walletSell", async (req, res) => {
   });
 
   const currentOwner = ownerData.get({ plain: true });
-
-  console.log("this is current owner", currentOwner);
-
   currentOwner.wallet.credits = currentOwner.wallet.credits + req.body.cost;
 
   res.status(200).json(currentOwner);
