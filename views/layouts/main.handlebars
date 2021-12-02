@@ -40,7 +40,7 @@
             <a class='navbar-brand name' href='/'>EyeCatchy</a>
             {{#if logged_in}}
             <ul class='collapse navbar-collapse list-unstyled justify-content-end pt-3' id='navbarSupportedContent'>
-                <li class='nav-item'><a class='nav-link' id="wallet" href='/wallet'>wallet:$20</a></li>
+                <li class='nav-item'><a class='nav-link' id="wallet" href='/wallet'>wallet:$ {{userWallet.credits}}</a></li>
               {{/if}}
                   <!-- Conditionally render login or logout links -->     
               <li class='nav-item'><a class='nav-link' href='../sell'>Sell</a></li>
