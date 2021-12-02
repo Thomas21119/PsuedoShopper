@@ -19,22 +19,9 @@ router.get("/", async (req, res) => {
     const productData = await Product.findAll({
       include: [{ model: Category }],
     });
-    // if (req.session.logged_in) {
-    //   const walletData = await Wallet.findOne({
-    //     where: {
-    //       user_id: req.session.user_id,
-    //     },
-    //   });
-    //   if (walletData) {
-    //     const wallet = walletData.get({ plain: true });
-
-    //     res.render("salesPage", { wallet, logged_in: req.session.logged_in });
-    //   }
-    // } else {
-    // }
     const products = productData.map((product) => product.get({ plain: true }));
     console.log(products);
-    res.render("salesPage", {
+    res.render("/", {
       products,
       logged_in: req.session.logged_in,
       userWallet,
@@ -87,9 +74,7 @@ router.get("/product/:id", withAuth, async (req, res) => {
     const postData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
     });
-    const userData = await User.findByPk(req.session.user_id, {
-      include: [{ model: Wallet }],
-    });
+
     const product = postData.get({ plain: true });
 
     res.render("product", {
@@ -128,20 +113,6 @@ router.get("/sell", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
       userWallet,
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/sellItem/:id", withAuth, async (req, res) => {
-  try {
-    const sellProductsData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category }],
-    });
-
-    const product = sellProductsData.get({ plain: true });
-
-    res.render("sellItem", { product, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
