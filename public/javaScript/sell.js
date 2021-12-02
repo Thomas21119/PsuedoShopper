@@ -1,4 +1,5 @@
-const buy = async () => {
+const sell = async () => {
+  console.log("hello");
   try {
     const id = document.querySelector("#product_id").value.trim();
     const price = document.querySelector("#newItemPrice").value.trim();
@@ -19,4 +20,4 @@ const buy = async () => {
   }
 };
 
-document.querySelector("#sellItem").addEventListener("submit", buy);
+document.querySelector("#sellItem").addEventListener("submit", sell);

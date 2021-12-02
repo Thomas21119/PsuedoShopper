@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
     // } else {
     // }
     const products = productData.map((product) => product.get({ plain: true }));
-    console.log(products);
     res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -72,7 +71,7 @@ router.get("/product/:id", withAuth, async (req, res) => {
     });
 
     const product = postData.get({ plain: true });
-
+    console.log(product, ":buying");
     res.render("product", { product, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -88,6 +87,22 @@ router.get("/sell", withAuth, async (req, res) => {
     const product = userProductsData.map((Data) => Data.get({ plain: true }));
 
     res.render("sell", { product, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/sellItem/:id", withAuth, async (req, res) => {
+  try {
+    const sellProductsData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
+
+    const product = sellProductsData.get({ plain: true });
+
+    console.log(product);
+
+    res.render("sellItem", { product, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }

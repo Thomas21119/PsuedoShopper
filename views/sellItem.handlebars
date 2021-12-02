@@ -1,0 +1,15 @@
+<h2>solo sell route</h2>
+<form id="sellItem">
+    <input type="hidden" id="product_id" name="product_id" value="{{product.id}}">
+    <h3>{{product.category.type}}</h3>
+      {{#if product.forSale}}
+      <h4>This item is currently up for sale</h4>
+      {{else}}
+      <h4>This item isn't currently up for sale</h4>
+      {{/if}}
+      <label for="newItemPrice">How much are you selling this for: </label>
+      <input id="newItemPrice" name="newItemPrice" type="number" min="1" value="{{product.cost}}"/>
+    <label for="sellBtn">Put This Item up for sale</label>
+    <button type="submit" >Sell!</button>
+</form>
+<script src="/javascript/sell.js"></script>
