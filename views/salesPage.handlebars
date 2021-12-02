@@ -4,7 +4,11 @@
     <section class="container">
       {{#each products as |product|}}
         {{#if product.forSale}}
-          {{> productCard}}
+         <a href="product/{{id}}">    
+            {{> productCard}}
+              <p>Buy Now!</p>
+            </div>
+          </a>
         {{/if}}
       {{/each}}
     </section>

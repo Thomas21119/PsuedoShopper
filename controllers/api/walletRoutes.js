@@ -24,7 +24,9 @@ router.put("/walletBuy", async (req, res) => {
     buyersWallet.credits = buyersWallet.credits - req.body.cost;
   } else {
     res.status(400).json({ message: "Not enough Money in buyers account" });
+    return;
   }
+  console.log("api route buy:", buyersWallet.credits);
 
   await Wallet.update(
     {
@@ -36,15 +38,15 @@ router.put("/walletBuy", async (req, res) => {
       },
     }
   );
-
   res.status(200).json(buyersWallet);
+  console.log("api route buy last");
 });
 
 router.put("/walletSell", async (req, res) => {
   const sellersWalletData = await Wallet.findOne({
     where: { user_id: req.body.currentOwner },
   });
-
+  console.log(req.body.currentOwner);
   const sellersWallet = sellersWalletData.get({ plain: true });
 
   sellersWallet.credits = sellersWallet.credits + parseInt(req.body.cost);

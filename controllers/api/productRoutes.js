@@ -23,12 +23,15 @@ router.put("/buy/:id", withAuth, async (req, res) => {
 });
 
 router.put("/forSale", withAuth, async (req, res) => {
+  console.log("hitting server");
   try {
     const productSelling = await Product.findByPk(req.body.id);
 
+    console.log(productSelling);
+
     productSelling.cost = req.body.price;
     productSelling.forSale = true;
-
+    console.log(productSelling);
     await productSelling.save();
 
     res.status(200).json(productSelling);
