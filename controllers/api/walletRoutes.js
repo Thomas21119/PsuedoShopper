@@ -62,4 +62,29 @@ router.put("/walletSell", async (req, res) => {
   res.status(200).json(sellersWallet);
 });
 
+router.put("/walletTopUp", async (req, res) => {
+  console.log("amount", req.body.amount);
+  try {
+    const walletData = await Wallet.findOne({
+      where: { user_id: req.session.user_id },
+    });
+    const newWallet = walletData.get({ plain: true });
+    newWallet.credits = newWallet.credits + parseInt(req.body.amount);
+    console.log(newWallet);
+    await Wallet.update(
+      {
+        credits: newWallet.credits,
+      },
+      {
+        where: {
+          user_id: req.session.user_id,
+        },
+      }
+    );
+    res.status(200).json(newWallet);
+  } catch (err) {
+    console.log(err + "err");
+  }
+});
+
 module.exports = router;

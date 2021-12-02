@@ -186,3 +186,7 @@ main {
   padding-bottom: 8rem;
   /* width: 100vw; */
 }
+
+.logo {
+  width: 30%;
+}
