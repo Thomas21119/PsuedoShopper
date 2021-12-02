@@ -13,32 +13,37 @@ const buy = async () => {
         "Content-Type": "application/json",
       },
     });
-    if (userBuy.ok) {
-      const userSell = await fetch(`/api/wallet/walletSell`, {
-        method: "PUT",
-        body: JSON.stringify({
-          cost,
-          currentOwner,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  } catch (err) {
+    console.log(err);
+  }
 
-      if (userSell.ok) {
-        const response = await fetch(`/api/products/buy/${id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        if (response.ok) {
-          document.location.replace(`/purchase/${id}`);
-        }
-      }
-    } else {
-      alert(response.statusText);
-    }
+  try {
+    const userSell = await fetch(`/api/wallet/walletSell`, {
+      method: "PUT",
+      body: JSON.stringify({
+        cost,
+        currentOwner,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+
+  try {
+    const response = await fetch(`/api/products/buy/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  try {
+    document.location.replace(`/purchase/${id}`);
   } catch (err) {
     console.log(err);
   }
