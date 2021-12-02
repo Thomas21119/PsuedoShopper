@@ -17,6 +17,14 @@ const walletData = [
     credits: 16.5,
     user_id: 2,
   },
+  {
+    credits: 22.5,
+    user_id: 5,
+  },
+  {
+    credits: 30.5,
+    user_id: 6,
+  },
 ];
 
 const seedWallets = () => Wallet.bulkCreate(walletData);

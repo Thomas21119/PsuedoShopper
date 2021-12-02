@@ -8,9 +8,6 @@ const CategoryData = [
     type: "Phone",
   },
   {
-    type: "Tablet",
-  },
-  {
     type: "Laptop",
   },
   {

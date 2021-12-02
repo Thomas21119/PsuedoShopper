@@ -18,7 +18,7 @@ Product.init(
     forSale: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: true,
     },
     category_id: {
       type: DataTypes.INTEGER,

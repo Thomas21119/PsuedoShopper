@@ -35,7 +35,6 @@ router.post("/createWallet", async (req, res) => {
       user_id: req.session.user_id,
       credits: 200,
     });
-    res.status(200).json(userWallet);
   } catch (err) {
     res.status(500).json(err);
   }
