@@ -1,5 +1,4 @@
 const sell = async () => {
-  console.log("hello");
   try {
     const id = document.querySelector("#product_id").value.trim();
     const price = document.querySelector("#newItemPrice").value.trim();
@@ -15,6 +14,10 @@ const sell = async () => {
         "Content-Type": "application/json",
       },
     });
+    if (!userBuy.ok) {
+      return;
+    }
+    document.location.replace(`/`);
   } catch (err) {
     console.log(err);
   }
