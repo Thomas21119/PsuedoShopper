@@ -185,10 +185,6 @@ main {
 	transition: 500ms;
 }
 
-p {
-	transition: none;
-}
-
 /* header */
 body,
 html {
@@ -462,6 +458,13 @@ main {
 	/* height: 30%; */
 	flex-direction: row;
 }
+.login-signup .btn-group p {
+	transition: none;
+}
+
+.login-signup .btn-group .linklogin:hover {
+	text-decoration: underline;
+}
 
 .login-signup button {
 	width: 200%;
@@ -471,17 +474,17 @@ main {
 
 .login-signup button:hover {
 	background-color: violet;
-	color: black;
-	font-size: 18px;
 }
 
 .login-signup .btn-group a {
 	font-size: 18px;
 	font-weight: 400;
+	transition: none;
 }
 
 .login-signup .btn-group a:hover {
-	text-shadow: 1 1 black;
+	text-shadow: 0 0 black;
+	text-decoration: underline;
 }
 
 .linkLogin:hover {
