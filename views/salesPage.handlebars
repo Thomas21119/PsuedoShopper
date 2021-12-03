@@ -1,4 +1,5 @@
-<h2>Items currently for sale!</h2>
+<div class="salesPage">
+<h2 id="allAvailable">Items currently for sale!</h2>
 
   {{#if products.length}}
     <section class="container">
@@ -6,7 +7,7 @@
         {{#if product.forSale}}
          <a href="product/{{id}}">    
             {{> productCard}}
-              <p>Buy Now!</p>
+              <button>Buy Now!</button>
             </div>
           </a>
         {{/if}}
@@ -15,4 +16,6 @@
     {{else}}
     <h2>No Items currently for sale!</h2>
   {{/if}}
+</div>
+
     
