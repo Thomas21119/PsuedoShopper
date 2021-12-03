@@ -271,6 +271,7 @@ form {
   height: 20vh;
   margin-bottom: 5%;
   background-color: black;
+  transition: background-color 0.5s ease-in-out;
   color: white;
   border-radius: 20px;
   padding: 2%;
@@ -436,6 +437,7 @@ form {
   width: 40%;
   height: 20vh;
   background-color: rgba(0, 0, 0, 70%);
+  transition: background-color 0.5s ease-in-out;
   border: 3px solid black;
   margin-bottom: 5%;
   color: white;
@@ -521,9 +523,14 @@ form {
   /* salesPage */
   .salesPage a {
     width: 18%;
+    transition: background-color 0.5s ease-in-out;
   }
 
   .container a {
     width: 18%;
+  }
+
+  .salesPage a:hover {
+    background-color: rgba(0, 0, 0, 100%);
   }
 }
