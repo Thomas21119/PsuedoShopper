@@ -237,14 +237,6 @@ header {
   color: white;
 }
 
-/* salesPage */
-main {
-  display: flex;
-  flex-direction: column;
-  height: 80%;
-  min-height: 80%;
-}
-
 form {
   margin: 0 auto;
   width: 60%;
@@ -252,66 +244,68 @@ form {
   border-radius: 20px;
 }
 
-#allAvailable {
-  width: 100%;
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 5%;
+/* sell page */
+
+main {
+  height: 80%;
 }
 
-.container {
+/* salesPage */
+.salesPage {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
   justify-content: space-evenly;
 }
 
-.container a {
+#allAvailable {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.salesPage .container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.salesPage .newCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 70%);
   width: 40%;
   height: 20vh;
   margin-bottom: 5%;
-  background-color: black;
-  transition: background-color 0.5s ease-in-out;
-  color: white;
+  padding: 2.5%;
+  border: 3px solid black;
   border-radius: 20px;
-  padding: 2%;
+  transition: background-color 0.5s ease-in-out;
 }
 
-.container .newCard {
+.salesPage .newCard:hover {
+  background-color: rgba(0, 0, 0, 100%);
+}
+
+.salesPage .newCard h2 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.salesPage .newCard a {
+  width: 80%;
+  height: 2rem;
+}
+
+.newCard a button {
   width: 100%;
   height: 100%;
-}
-
-.container .newCard h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30%;
-  font-size: 40px;
-}
-
-.container .newCard p {
-  height: 35%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container .newCard button {
-  width: 100%;
-  height: 20%;
-  margin: 0 auto;
   border-radius: 20px;
-}
-
-.salesPage .container h2 {
-  display: flex;
-  width: 60%;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 36px;
 }
 
 /* wallet route */
@@ -426,57 +420,7 @@ form {
 
 /* sell page */
 .salesPage {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  height: fit-content;
-  width: 100%;
-}
-
-.salesPage a {
-  width: 40%;
-  height: 20vh;
-  background-color: rgba(0, 0, 0, 70%);
-  transition: background-color 0.5s ease-in-out;
-  border: 3px solid black;
-  margin-bottom: 5%;
   color: white;
-  border-radius: 20px;
-  padding: 2%;
-}
-
-.salesPage .newCard {
-  width: 100%;
-  height: 100%;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.salesPage .newCard h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30%;
-  font-size: 40px;
-}
-
-.salesPage .newCard p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30%;
-}
-
-.salesPage .newCard button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2rem;
-  width: 80%;
-  border-radius: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -490,25 +434,10 @@ form {
     color: violet;
   }
 
-  /* salesPage */
-  .container {
-    width: 100%;
-  }
-
-  .container a {
+  .salesPage .newCard {
     width: 25%;
-  }
-
-  .salesPage a {
-    width: 25%;
-  }
-
-  /* Wallet */
-  .walletRoute h1 {
-    font-size: 36px;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .navbar-brand-name {
     display: flex;
@@ -519,18 +448,7 @@ form {
     font-weight: bold;
     color: violet;
   }
-
-  /* salesPage */
-  .salesPage a {
+  .salesPage .newCard {
     width: 18%;
-    transition: background-color 0.5s ease-in-out;
-  }
-
-  .container a {
-    width: 18%;
-  }
-
-  .salesPage a:hover {
-    background-color: rgba(0, 0, 0, 100%);
   }
 }
