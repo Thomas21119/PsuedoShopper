@@ -15,16 +15,23 @@ const wallet = async (currentUser) => {
 
 router.get("/", async (req, res) => {
   try {
-    const userWallet = await wallet(req.session.user_id);
     const productData = await Product.findAll({
       include: [{ model: Category }],
     });
     const products = productData.map((product) => product.get({ plain: true }));
-    res.render("salesPage", {
-      products,
-      logged_in: req.session.logged_in,
-      userWallet,
-    });
+    if (req.session.user_id) {
+      const userWallet = await wallet(req.session.user_id);
+      res.render("salesPage", {
+        products,
+        logged_in: req.session.logged_in,
+        userWallet,
+      });
+    } else {
+      res.render("salesPage", {
+        products,
+        logged_in: req.session.logged_in,
+      });
+    }
   } catch (err) {
     res.status(500).json(err);
   }
@@ -32,8 +39,12 @@ router.get("/", async (req, res) => {
 
 router.get("/signup", async (req, res) => {
   try {
-    const userWallet = await wallet(req.session.user_id);
-    res.render("signUp", { logged_in: req.session.logged_in, userWallet });
+    if (req.session.user_id) {
+      const userWallet = await wallet(req.session.user_id);
+      res.render("signUp", { logged_in: req.session.logged_in, userWallet });
+    } else {
+      res.render("signUp", { logged_in: req.session.logged_in });
+    }
   } catch (err) {
     res.status(500).json(err);
   }
@@ -41,8 +52,12 @@ router.get("/signup", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const userWallet = await wallet(req.session.user_id);
-    res.render("login", { logged_in: req.session.logged_in, userWallet });
+    if (req.session.user_id) {
+      const userWallet = await wallet(req.session.user_id);
+      res.render("login", { logged_in: req.session.logged_in, userWallet });
+    } else {
+      res.render("login", { logged_in: req.session.logged_in });
+    }
   } catch (err) {
     res.status(500).json(err);
   }
