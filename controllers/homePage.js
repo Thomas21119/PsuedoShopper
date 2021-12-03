@@ -89,10 +89,8 @@ router.get("/product/:id", withAuth, async (req, res) => {
     });
 
     const product = postData.get({ plain: true });
-    const user = userData.get({ plain: true });
     res.render("product", {
       product,
-      user,
       logged_in: req.session.logged_in,
       userWallet,
     });

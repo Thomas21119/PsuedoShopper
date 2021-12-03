@@ -2,11 +2,17 @@ const buy = async () => {
   try {
     const id = document.querySelector("#product_id").value.trim();
     const cost = document.querySelector("#cost").value.trim();
-    const currentOwner = document.querySelector("#productOwner").value.trim();
-    const credits = document.querySelector("#user_credits").value.trim();
+    const currentOwner = Number(
+      document.querySelector("#productOwner").value.trim()
+    );
+    const credits = Number(
+      document.querySelector("#user_credits").value.trim()
+    );
 
     if (credits < cost) {
       //redirect maybe?
+      console.log(credits);
+      console.log(cost);
       alert("Not enough money");
       return;
     }
