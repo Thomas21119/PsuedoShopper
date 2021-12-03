@@ -2,6 +2,7 @@ const User = require("./User");
 const Product = require("./Product");
 const Wallet = require("./Wallet");
 const Category = require("./Category");
+const History = require("./History");
 
 Product.belongsTo(Category, {
   foreignKey: "category_id",
@@ -29,4 +30,14 @@ Wallet.belongsTo(User, {
   onDelete: "cascade",
 });
 
-module.exports = { User, Product, Wallet, Category };
+History.belongsTo(Product, {
+  foreignKey: "product_id",
+  onDelete: "cascade",
+});
+
+Product.hasMany(History, {
+  foreignKey: "product_id",
+  onDelete: "cascade",
+});
+
+module.exports = { User, Product, Wallet, Category, History };

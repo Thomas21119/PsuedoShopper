@@ -22,5 +22,5 @@ const topUp = async (event) => {
     }
   } catch (err) {}
 };
-console.log();
+
 document.querySelector("#topUpSubmit").addEventListener("submit", topUp);
