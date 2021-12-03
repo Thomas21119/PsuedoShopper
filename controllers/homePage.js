@@ -118,6 +118,18 @@ router.get("/sell", withAuth, async (req, res) => {
   }
 });
 
+router.get("/sellItem/:id", withAuth, async (req, res) => {
+  try {
+    const sellProductsData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
+    const product = sellProductsData.get({ plain: true });
+    res.render("sellItem", { product, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/purchase/:id", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
