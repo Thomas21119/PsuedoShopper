@@ -272,8 +272,8 @@ main {
 }
 
 #allAvailable {
-	font-size: 36px;
-	font-weight: bold;
+	font-size: 150%;
+	font-weight: 500;
 	margin-bottom: 5%;
 }
 
@@ -305,8 +305,8 @@ main {
 }
 
 .salesPage .newCard h2 {
-	font-size: 32px;
-	font-weight: bold;
+	font-size: 150%;
+	font-weight: 500;
 }
 
 .salesPage .newCard a {
@@ -318,6 +318,7 @@ main {
 	width: 100%;
 	height: 100%;
 	border-radius: 20px;
+	font-weight: 500;
 }
 
 /* wallet route */
