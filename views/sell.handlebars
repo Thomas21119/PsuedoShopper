@@ -2,11 +2,12 @@
  
   {{#if product}}
     {{#each product}}
-      <a href="sellItem/{{id}}">    
+          
         {{>productCard}}
+        <a href="sellItem/{{id}}">
         <button>Sell this!</button>
+        </a>
         </div>
-      </a>
     {{/each}}
     
   {{else}}
