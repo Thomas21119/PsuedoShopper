@@ -1,25 +1,12 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { Product, User, Wallet, Category } = require("../models");
+const { Product, User, Wallet, Category, History } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
       include: [{ model: Category }],
     });
-    // if (req.session.logged_in) {
-    //   const walletData = await Wallet.findOne({
-    //     where: {
-    //       user_id: req.session.user_id,
-    //     },
-    //   });
-    //   if (walletData) {
-    //     const wallet = walletData.get({ plain: true });
-
-    //     res.render("salesPage", { wallet, logged_in: req.session.logged_in });
-    //   }
-    // } else {
-    // }
     const products = productData.map((product) => product.get({ plain: true }));
     res.render("salesPage", { products, logged_in: req.session.logged_in });
   } catch (err) {
@@ -121,4 +108,30 @@ router.get("/purchase/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/chart/:id", async (req, res) => {
+  try {
+    console.log("hello");
+    const historyData = await History.findAll({
+      where: { product_id: req.params.id },
+    });
+
+    const productData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }],
+    });
+
+    const product = productData.get({ plain: true });
+
+    const history = await historyData.map((Data) => Data.get({ plain: true }));
+
+    console.log("product plain:", product);
+
+    console.log("history plain:", history);
+
+    res.render("chart", { history, product, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

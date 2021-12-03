@@ -1,6 +1,6 @@
 const { Category } = require("../models");
 
-const CategoryData = [
+const categoryData = [
   {
     type: "Watch",
   },
@@ -39,6 +39,6 @@ const CategoryData = [
   },
 ];
 
-const seedCategories = () => Category.bulkCreate(CategoryData);
+const seedCategories = () => Category.bulkCreate(categoryData);
 
 module.exports = seedCategories;
