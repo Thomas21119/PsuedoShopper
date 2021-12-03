@@ -431,7 +431,7 @@ main {
 
 .login-signup .form-group {
 	display: flex;
-	/* height: 4%; */
+	height: 4%;
 	width: 50%;
 	/* justify-content: space-evenly; */
 	align-items: center;
@@ -516,10 +516,17 @@ main {
 	}
 
 	.login-signup input {
-		width: 135%;
+		width: 150%;
 		height: 2rem;
-		text-align: center;
+		text-align: left;
 		border-radius: 10px;
+	}
+
+	.login-signup label {
+		font-size: 13px;
+		line-height: 1.5rem;
+		text-align: center;
+		font-weight: 500;
 	}
 
 	.login-signup button {
@@ -553,7 +560,7 @@ main {
 		width: 40%;
 		font-size: 18px;
 		line-height: 1.5rem;
-		text-align: center;
+		text-align: right;
 		font-weight: 500;
 	}
 
