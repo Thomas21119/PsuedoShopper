@@ -205,4 +205,16 @@ router.get("/chart/:id", async (req, res) => {
   }
 });
 
+
+//error page, having path issue
+
+// router.get("/:other", (req, res) => {
+//   res.send('404 page here') - it is working
+//});
+
+// router.get('/:other', (req, res)=> {
+//      const index = path.join(__dirname, '/', '../public/html', 'customerror.html' );
+//      res.sendFile(index);
+// });
+
 module.exports = router;
