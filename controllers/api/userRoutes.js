@@ -3,7 +3,6 @@ const { User, Wallet } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", async (req, res) => {
-  console.log("here", req.body);
   try {
     const userData = await User.findOne({
       where: { username: req.body.username },
@@ -17,13 +16,13 @@ router.post("/", async (req, res) => {
     }
 
     const newUser = await User.create({ ...req.body });
-
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
 
       res.json({ user: newUser, message: "You are now logged in!" });
     });
+    return newUser.id;
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,6 +35,7 @@ router.post("/createWallet", async (req, res) => {
       credits: 200,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
