@@ -49,29 +49,24 @@
           id="navbarSupportedContent"
         >
           {{#if logged_in}}
-            <li class="nav-item"><a
-                class="nav-link"
-                id="wallet"
-                href="/wallet"
-              >Wallet: ${{userWallet.credits}}</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/wallet">Wallet: ${{userWallet.credits}}</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/wallet">Purchase</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/wallet">Sell</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/dashboard">Dashboard</a></li>
+          {{else}}
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
           {{/if}}
           <!-- Conditionally render login or logout links -->
-          <li class="nav-item"><a class="nav-link" href="../sell">Sell</a></li>
+          {{!-- <li class="nav-item"><a class="nav-link" href="../sell">Sell</a></li> --}}
           {{#if logged_in}}
-            <li class="nav-item"><a class="nav-link" id="logoutBtn" href="">Log
-                Out</a></li>
+            <li class="nav-item"><a class="nav-link" id="logoutBtn" href="">Logout</a></li>
             <script src="/javascript/logout.js"></script>
           {{else}}
-            <li class="nav-item"><a
-                class="nav-link"
-                id="btn-signin"
-                href="../login"
-              >Log In</a></li>
-            <li class="nav-item"><a
-                class="nav-link"
-                id="btn-signup"
-                href="../signup"
-              >Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" id="btn-signin" href="../login">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" id="btn-signup" href="../signup">Sign Up</a></li>
           {{/if}}
         </ul>
       </nav>
