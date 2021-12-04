@@ -67,21 +67,20 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        username: req.body.username,
+        id: req.session.user_id,
       },
     });
+    const userName = userData.username;
     if (req.session.user_id) {
-      res.render("login", { 
-        userData,
+      const userWallet = await wallet(req.session.user_id);
+      res.render("dashboard", { 
+        userName,
         logged_in: req.session.logged_in, 
         userWallet 
       });
     } else {
-      res.render("login", { userData, logged_in: req.session.logged_in });
+      res.render("dashboard", { userName, logged_in: req.session.logged_in });
     }
-
-    const userWallet = await wallet(req.session.user_id);
-    res.render("dashboard", { logged_in: req.session.logged_in, userWallet });
   } catch (err) {
     res.status(500).json(err);
   }
