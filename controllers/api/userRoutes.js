@@ -17,13 +17,13 @@ router.post("/", async (req, res) => {
     }
 
     const newUser = await User.create({ ...req.body });
-
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
 
       res.json({ user: newUser, message: "You are now logged in!" });
     });
+    return newUser.id;
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,6 +36,7 @@ router.post("/createWallet", async (req, res) => {
       credits: 200,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

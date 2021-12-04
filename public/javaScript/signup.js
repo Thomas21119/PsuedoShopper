@@ -9,18 +9,19 @@ const signup = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
+    // const data = await response.json();
+    //console.log(data["user"]["id"]);
     if (response.ok) {
       const walletResponse = await fetch("/api/wallet/createWallet", {
         method: "POST",
-        body: JSON.stringify({ username }),
-        headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify({ }),
+        // headers: { "Content-Type": "application/json" },
       });
       if (walletResponse.ok) {
-        document.location.replace("/");
+        document.location.replace("/dashboard");
       }
     } else {
       console.log(response.status);
-      console.log("failedtest");
     }
   }
 };
