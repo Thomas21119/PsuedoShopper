@@ -16,13 +16,17 @@ const login = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace("/");
+        location.reload();
+        window.location.replace("/dashboard");
       }else{
         alert(`Incorrect username or password, please try again.`);
         txtUserName.value = '';
         txtPassword.value = '';
         txtUserName.focus();
+        return;
       }
+  }else{
+    alert(`Incorrect username or password, please try again.`);
   }
 };
 
