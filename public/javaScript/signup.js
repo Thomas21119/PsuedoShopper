@@ -38,6 +38,9 @@ const signup = async (event) => {
         txtUserNameSU.focus();
         return;
       }
+
+    } else {
+      console.log(response.status);
     }
   }
 };

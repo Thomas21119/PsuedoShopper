@@ -45,7 +45,19 @@ const buy = async () => {
           },
         });
         if (response.ok) {
-          document.location.replace(`/purchase/${id}`);
+          const updateHist = await fetch("/api/history/", {
+            method: "POST",
+            body: JSON.stringify({
+              product_id: id,
+              salePrice: cost,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          if (updateHist.ok) {
+            document.location.replace(`/purchase/${id}`);
+          }
         }
       }
     } else {
