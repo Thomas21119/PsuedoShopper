@@ -9,7 +9,6 @@ const wallet = async (currentUser) => {
     },
   });
   const currentWallet = userWallet.get({ plain: true });
-  console.log(currentWallet);
   return currentWallet;
 };
 
@@ -151,8 +150,6 @@ router.get("/purchase/:id", withAuth, async (req, res) => {
 
 router.get("/chart/:id", async (req, res) => {
   try {
-    const userWallet = await wallet(req.session.user_id);
-    console.log("hello");
     const historyData = await History.findAll({
       where: { product_id: req.params.id },
     });
@@ -164,42 +161,21 @@ router.get("/chart/:id", async (req, res) => {
     const product = productData.get({ plain: true });
 
     const history = await historyData.map((Data) => Data.get({ plain: true }));
-
-    console.log("product plain:", product);
-
-    console.log("history plain:", history);
-
-    res.render("chart", {
-      history,
-      product,
-      logged_in: req.session.logged_in,
-      userWallet,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/chart/:id", async (req, res) => {
-  try {
-    console.log("hello");
-    const historyData = await History.findAll({
-      where: { product_id: req.params.id },
-    });
-
-    const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category }],
-    });
-
-    const product = productData.get({ plain: true });
-
-    const history = await historyData.map((Data) => Data.get({ plain: true }));
-
-    console.log("product plain:", product);
-
-    console.log("history plain:", history);
-
-    res.render("chart", { history, product, logged_in: req.session.logged_in });
+    if (req.session.user_id) {
+      const userWallet = await wallet(req.session.user_id);
+      res.render("chart", {
+        history,
+        product,
+        logged_in: req.session.logged_in,
+        userWallet,
+      });
+    } else {
+      res.render("chart", {
+        history,
+        product,
+        logged_in: req.session.logged_in,
+      });
+    }
   } catch (err) {
     res.status(500).json(err);
   }

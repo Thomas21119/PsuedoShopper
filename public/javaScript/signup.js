@@ -20,7 +20,6 @@ const signup = async (event) => {
       }
     } else {
       console.log(response.status);
-      console.log("failedtest");
     }
   }
 };

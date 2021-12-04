@@ -1,12 +1,5 @@
 const sequelize = require("../config/connection");
-const {
-  User,
-  Wallet,
-  Product,
-  Category,
-  History,
-  SalesHistory,
-} = require("../models");
+const { User, Wallet, Product, Category, History } = require("../models");
 
 const seedCategories = require("./category-seeds");
 const seedProducts = require("./product-seeds");
