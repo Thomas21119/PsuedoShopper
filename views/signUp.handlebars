@@ -1,22 +1,27 @@
 <div class="login-signup" id="form-signin">
   {{! <h3>Sign Up</h3> }}
   <form id="signUpForm">
-
+    <h1>Account - Sign Up</h1>
     <div class="form-group">
-      <label for="username" class="text-color">Username</label>
+      <label for="username" class="text-color">Username :&nbsp;&nbsp;</label>
       <div class="username">
         <input id="nameSignup" type="text" placeholder="username" />
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="text-color">Password</label>
+      <label for="password" class="text-color">Password :&nbsp;&nbsp;</label>
       <div class="password">
         <input id="passwordSignup" type="password" placeholder="password" />
       </div>
+      
     </div>
+    <div>
+      <button type="submit" id="btn-sign">Sign Up</button>
+      </div>
     <div class="btn-group">
-      <button type="submit" id="btn-sign" class="btn btn-color">Sign Up</button>
-      <a href="/login"> Or Login Here </a>
+      <p>Already have an account?</p>&nbsp;<a href="/login" class="linkLogin">Login Here</a>
+
+      
     </div>
   </form>
 </div>

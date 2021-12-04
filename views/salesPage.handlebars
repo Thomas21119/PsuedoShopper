@@ -1,15 +1,14 @@
 <div class="salesPage">
 <h2 id="allAvailable">Items currently for sale!</h2>
-
   {{#if products.length}}
     <section class="container">
       {{#each products as |product|}}
         {{#if product.forSale}}
-         <a href="product/{{id}}">    
             {{> productCard}}
-              <button>Buy Now!</button>
+            <a href="product/{{id}}">    
+              <button class="btnBuy">Buy Now!</button>
+            </a>
             </div>
-          </a>
         {{/if}}
       {{/each}}
     </section>

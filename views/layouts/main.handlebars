@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/reset.css" />
     {{! <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> }}
     <link rel="stylesheet" href="/css/style.css" />
@@ -48,29 +49,24 @@
           id="navbarSupportedContent"
         >
           {{#if logged_in}}
-            <li class="nav-item"><a
-                class="nav-link"
-                id="wallet"
-                href="/wallet"
-              >Wallet: ${{userWallet.credits}}</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/wallet">Wallet: ${{userWallet.credits}}</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="">Purchase</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="">Sell</a></li>
+            <li class="nav-item"><a class="nav-link" id="wallet" href="/dashboard">Dashboard</a></li>
+          {{else}}
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
+            <li class="nav-item"><a class="nav-link" href=""></a></li>
           {{/if}}
           <!-- Conditionally render login or logout links -->
-          <li class="nav-item"><a class="nav-link" href="../sell">Sell</a></li>
+          {{!-- <li class="nav-item"><a class="nav-link" href="../sell">Sell</a></li> --}}
           {{#if logged_in}}
-            <li class="nav-item"><a class="nav-link" id="logoutBtn" href="">Log
-                Out</a></li>
+            <li class="nav-item"><a class="nav-link" id="logoutBtn" href="">Logout</a></li>
             <script src="/javascript/logout.js"></script>
           {{else}}
-            <li class="nav-item"><a
-                class="nav-link"
-                id="btn-signin"
-                href="../login"
-              >Log In</a></li>
-            <li class="nav-item"><a
-                class="nav-link"
-                id="btn-signup"
-                href="../signup"
-              >Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" id="btn-signin" href="../login">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" id="btn-signup" href="../signup">Sign Up</a></li>
           {{/if}}
         </ul>
       </nav>
