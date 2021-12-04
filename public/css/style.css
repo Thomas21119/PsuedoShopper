@@ -452,6 +452,7 @@ main {
 	height: 2.5rem;
 	text-align: center;
 	border-radius: 10px;
+	padding: 10px;
 }
 
 .login-signup .btn-group {

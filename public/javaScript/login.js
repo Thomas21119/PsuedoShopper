@@ -1,5 +1,10 @@
+const txtUserName = document.querySelector("#loginUserName");
+const loginFrm = document.querySelector("#loginForm");
+
 const login = async (event) => {
   event.preventDefault();
+
+
 
   const username = document.querySelector("#loginUserName").value.trim();
   const password = document.querySelector("#loginPassword").value.trim();
@@ -19,6 +24,6 @@ const login = async (event) => {
   }
 };
 
-document.querySelector("#loginUserName").focus();
+txtUserName.focus();
 
-document.querySelector("#loginForm").addEventListener("submit", login);
+loginFrm.addEventListener("submit", login);
