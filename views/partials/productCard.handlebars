@@ -1,10 +1,8 @@
-   
-    <div class="newCard">
-            <h2>{{category.type}}</h2>
-           <a href="/chart/{{id}}"> <button class="chart"> Chart history </button> </a>
-            {{!-- {{#if (user_owns req.session.user_id user_id)}}
-            <h2>It is owned by this user</h2>
-            {{/if}} --}}
-            <p>Price: ${{cost}}</p>
+<div class="newCard">
+<h2 class="card-header">{{category.type}}</h2>
+<p>Seller: {{user.username}}<br>
+Price: $ {{cost}}<br></p>
+<a href="/chart/{{id}}"> <button class="chart"> Chart history </button> </a>
             
+
     

@@ -1,8 +1,8 @@
 <div class="dashboard">
-<h1>Hello 👋 {{userName}}</h1>
+<h1 class="dashboard-header">Hello {{userName}} 👋</h1>
 
 <div class="salesPage">
- <h2 class="salesHeader">Items Not Currently Up For Sale</h2>
+  <h2 class="salesHeader">Items You Own</h2>
   {{#if product}}
   <section class="container">
     {{#each product}}
@@ -16,8 +16,12 @@
         {{/if}}
     {{/each}}
     </section>
+  {{else}}
+  <p class="salesText">You currently have no items.</p>
+  {{/if}}
 
-    <h2 class="salesHeader">Items You Currently Have For Sale</h2>
+  <h2 class="salesHeader">Items You Currently Have For Sale</h2>
+  {{#if product}}
     <section class="container">
     {{#each product}}
         {{#if forSale}}
@@ -28,9 +32,10 @@
           </div>
         {{/if}}
     {{/each}}
+    <a class="nav-image" id="wallet" href="/sell">➕</a>
     </section>
-  {{else}}
-    <h2>You have no products to sell</h2>
+   {{else}}
+  <p class="salesText">You currently have no items for sale.</p>
   {{/if}}
  
 </div> 

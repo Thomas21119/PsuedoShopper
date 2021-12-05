@@ -15,7 +15,8 @@ const wallet = async (currentUser) => {
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }],
+      include: [{ model: Category}, {model: User}],
+      // include: [{ model: User}],
     });
     const products = productData.map((product) => product.get({ plain: true }));
     if (req.session.user_id) {
@@ -120,24 +121,24 @@ router.get("/product/:id", withAuth, async (req, res) => {
   }
 });
 
-// router.get("/sell", withAuth, async (req, res) => {
-//   try {
-//     const userWallet = await wallet(req.session.user_id);
-//     const userProductsData = await Product.findAll({
-//       include: [{ model: Category }],
-//       where: { user_id: req.session.user_id },
-//     });
-//     const product = userProductsData.map((Data) => Data.get({ plain: true }));
+router.get("/sell", withAuth, async (req, res) => {
+  try {
+    const userWallet = await wallet(req.session.user_id);
+    const userProductsData = await Product.findAll({
+      include: [{ model: Category }],
+      where: { user_id: req.session.user_id },
+    });
+    const product = userProductsData.map((Data) => Data.get({ plain: true }));
 
-//     res.render("sell", {
-//       product,
-//       logged_in: req.session.logged_in,
-//       userWallet,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render("sell", {
+      product,
+      logged_in: req.session.logged_in,
+      userWallet,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get("/sellItem/:id", withAuth, async (req, res) => {
   try {
