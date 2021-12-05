@@ -1,9 +1,11 @@
-<div class="newCard">
-<h2 class="card-header">{{category.type}}</h2>
-<p>
-    Price  : $ {{cost}}
+<div class="newCard" id="newCard">
+<h2>{{category.type}}</h2>
+<p class="card-details">
+    Price : $ {{cost}}
     <br>
+    {{#if user.username}}
     Seller : {{user.username}}
+    {{/if}}
 </p>
 <a href="/chart/{{id}}"> <button class="chart"> Chart history </button> </a>
             

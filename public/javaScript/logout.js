@@ -1,6 +1,7 @@
 const logoutBtn = document.querySelector("#logoutBtn");
 
 const logout = async () => {
+  
   const response = await fetch("/api/users/logout", {
     method: "POST",
     headers: {
