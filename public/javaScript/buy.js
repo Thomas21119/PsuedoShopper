@@ -10,9 +10,6 @@ const buy = async () => {
     );
 
     if (credits < cost) {
-      //redirect maybe?
-      console.log(credits);
-      console.log(cost);
       alert("Not enough money");
       return;
     }
