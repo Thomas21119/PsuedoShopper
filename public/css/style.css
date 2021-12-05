@@ -328,8 +328,8 @@ form {
 	display: flex;
 	flex-wrap: wrap;
 	width: 90vw;
-	/* height: 60vw; */
 	justify-content: space-evenly;
+	min-height: 215px;
 }
 
 .salesPage .newCard {
@@ -465,19 +465,20 @@ form {
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 80%;
+	width: 50vw;
 }
 
 .login-signup .form-group {
 	display: flex;
 	height: 4%;
-	width: 50%;
-	/* justify-content: space-evenly; */
+	width: 45vw;
+	flex-direction: row;
 	align-items: center;
+	justify-content: center;
 }
 
 .login-signup label {
-	width: 100%;
+	/* width: 100%; */
 	font-size: 15px;
 	line-height: 1.5rem;
 	text-align: center;
@@ -492,6 +493,7 @@ form {
 	text-align: center;
 	border-radius: 10px;
 	padding: 10px;
+	margin-left: 5px;
 }
 
 .login-signup .btn-group {
@@ -511,9 +513,9 @@ form {
 }
 
 .login-signup button {
-	width: 200%;
+	width: 150%;
 	height: 2.3rem;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 .login-signup button:hover {
@@ -568,7 +570,7 @@ form {
 }
 
 .salesHeader {
-	margin-bottom: 1.2%;
+	margin-bottom: 1%;
 	color: black;
 	text-decoration: underline;
 	font-weight: 700;
@@ -579,6 +581,9 @@ form {
 	margin-bottom: 15px;
 	color: red;
 	text-align: center;
+	min-height: 215px;
+	display: flex;
+	align-items: center;
 }
 
 /* Sales Chart Page */
