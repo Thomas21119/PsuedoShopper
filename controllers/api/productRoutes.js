@@ -63,7 +63,7 @@ router.post('/remove/:id', withAuth, async (req, res) => {
       return;
     }
     await prod_id.destroy();
-
+    return;
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
