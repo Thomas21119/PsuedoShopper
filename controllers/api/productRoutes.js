@@ -37,4 +37,20 @@ router.put("/forSale", withAuth, async (req, res) => {
   }
 });
 
+router.post("/newSale", withAuth, async (req, res) => {
+  try {
+    const newItemCost = req.body.itemCost;
+    const newItemCategoryId = req.body.newCategoriesId;
+    const userId = req.session.user_id;
+    const newProduct = await Product.create({
+      cost: newItemCost,
+      category_id: newItemCategoryId,
+      user_id: userId,
+    });
+    res.status(200).json(newProduct);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
