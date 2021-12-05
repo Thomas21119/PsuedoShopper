@@ -560,6 +560,11 @@ form {
 	padding: 20px;
 }
 
+.productBuy-header {
+	font-size: 26px;
+	font-weight: 500;
+}
+
 .productCard button {
 	width: 50%;
 	border-radius: 20px;
