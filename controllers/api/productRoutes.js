@@ -70,4 +70,26 @@ router.post('/remove/:id', withAuth, async (req, res) => {
   }
 });
 
+router.post('/update/:id', withAuth, async (req, res) => {
+  try {
+    
+    const productWithdraw = await Product.findByPk(req.params.id);
+
+    if (!productWithdraw) {
+      res.status(400).json({ message: "cant find the id of this product" });
+      return;
+    }
+    console.log(req.session.id)
+    // productWithdraw.user_id = req.session.user_id;
+    // productWithdraw.forSale = false;
+
+    await productWithdraw.save();
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;

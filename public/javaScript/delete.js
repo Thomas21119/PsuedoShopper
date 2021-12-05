@@ -1,14 +1,16 @@
 const removeBtn = document.querySelector('#removeBtn');
+const unSellBtn = document.querySelector('#unsellBtn');
+const theCard = document.querySelector('.newCard');
 
-const deleteItem = async () => {
-
+const eventHandler = async() => {
     const cardId = removeBtn.parentElement.getAttribute('data-id');
 
     if (cardId) {
-
         const confirmBox = prompt("Confirm delete item? (Yes/No)");
-        const textConfirm = "Yes"
+
         if (confirmBox == null || confirmBox == "") {
+            alert("Invalid input.")
+            return;
             //do nothing
         }else if(confirmBox == "Yes" || confirmBox == "yes" || confirmBox == "YES" || confirmBox == "y" || confirmBox == "Y"){
             const response = await fetch(`/api/products/remove/${cardId}`, {
@@ -19,14 +21,12 @@ const deleteItem = async () => {
             if (response.ok) {
                 alert(`Item has been removed.`);
                 location.reload();
+
             }else {
                 console.log(response);
             }
-        }else {
-            //do nothing
         }
     }
-
 };
-
-removeBtn.addEventListener('click', deleteItem);
+    
+removeBtn.addEventListener('click', eventHandler);

@@ -1,3 +1,8 @@
+const newItemCancel = document.querySelector("#newItemCancel");
+const newItemSave = document.querySelector("#newItemSubmit");
+const itemNameTxt = document.querySelector("#newItemName");
+const itemCostTxt = document.querySelector("#newItemPrice");
+  
 const cancelNewItem = (event) => {
   event.preventDefault();
   document.location.replace("/dashboard");
@@ -5,8 +10,9 @@ const cancelNewItem = (event) => {
 
 const newItemSubmit = async (event) => {
   event.preventDefault();
-  const itemName = document.querySelector("#newItemName").value;
-  const itemCost = document.querySelector("#newItemPrice").value;
+
+  const itemName = itemNameTxt.value.trim();
+  const itemCost = itemCostTxt.value.trim();
 
   if (itemName && itemCost) {
     const category = await fetch("/api/categories/create", {
@@ -37,10 +43,8 @@ const newItemSubmit = async (event) => {
   }
 };
 
-document
-  .querySelector("#newItemCancel")
-  .addEventListener("click", cancelNewItem);
+itemNameTxt.focus();
 
-document
-  .querySelector("#newItemSubmit")
-  .addEventListener("click", newItemSubmit);
+newItemCancel.addEventListener("click", cancelNewItem);
+
+newItemSave.addEventListener("click", newItemSubmit);
