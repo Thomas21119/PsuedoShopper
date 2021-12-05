@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const path = require('path');
 const withAuth = require("../utils/auth");
 const { Product, User, Wallet, Category, History } = require("../models");
 
@@ -209,15 +210,11 @@ router.get("/chart/:id", async (req, res) => {
   }
 });
 
-//error page, having path issue
-
-// router.get("/:other", (req, res) => {
-//   res.send('404 page here') - it is working
-//});
-
-// router.get('/:other', (req, res)=> {
-//      const index = path.join(__dirname, '/', '../public/html', 'customerror.html' );
-//      res.sendFile(index);
-// });
+// custom 404 error page
+router.get('/:other', (req, res)=> {
+  //   res.send('404 page here')
+  const index = path.join(__dirname, '/', '../public/html', 'customerror.html' );
+  res.sendFile(index);
+});
 
 module.exports = router;
