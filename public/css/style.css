@@ -212,7 +212,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	background-color: black;
-	margin-bottom: 5%;
+	margin-bottom: 2%;
 }
 
 .branding {
@@ -304,7 +304,7 @@ form {
 	width: 100%;
 	height: fit-content;
 	justify-content: space-evenly;
-	padding-bottom: 25px;
+	/* padding-bottom: 25px; */
 }
 .dashboard-header {
 	margin-bottom: 50px;
@@ -339,8 +339,9 @@ form {
 	width: 90vw;
 	min-height: 215px;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	flex: 1 0;
+	/* margin: 20px; */
 }
 
 .salesPage .newCard {
@@ -349,7 +350,7 @@ form {
 	justify-content: space-between;
 	align-items: center;
 	background-color: rgb(238 130 238 / 39%);
-	width: 18%;
+	width: 15%;
 	height: 20vh;
 	/* margin-bottom: 2%; */
 	padding-bottom: 1%;
@@ -358,6 +359,7 @@ form {
 	transition: background-color 0.3s ease-in-out;
 	padding-top: 1%;
 	color: black;
+	margin: 1%;
 }
 
 .salesPage .newCard:hover {
