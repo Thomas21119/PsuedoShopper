@@ -16,8 +16,6 @@ const newItemSubmit = async (event) => {
     });
     const categoryId = await category.json();
     if (categoryId) {
-      console.log(categoryId);
-      console.log(categoryId.id);
     }
     if (!category.ok) {
       return response
@@ -32,10 +30,8 @@ const newItemSubmit = async (event) => {
     });
     const userId = await response.json();
     if (response.ok) {
-      console.log("allGMan");
       document.location.replace("/dashboard");
     } else {
-      console.log("error");
       document.location.replace("/error");
     }
   }

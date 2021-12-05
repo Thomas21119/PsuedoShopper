@@ -53,4 +53,21 @@ router.post("/newSale", withAuth, async (req, res) => {
   }
 });
 
+router.post('/remove/:id', withAuth, async (req, res) => {
+  try {
+    const prod_id = await Product.findByPk(req.params.id);
+
+    if (!prod_id) {
+      console.log(prod_id);
+      res.status(400).json({ message: "cant find the id of this product" });
+      return;
+    }
+    await prod_id.destroy();
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
