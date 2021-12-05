@@ -376,6 +376,7 @@ form {
 .salesPage .newCard h2 {
 	font-size: 24px;
 	font-weight: 900;
+	text-align: center;
 }
 
 .salesPage .newCard p {
@@ -409,7 +410,7 @@ form {
 }
 
 .btnSell {
-	width: 100%;
+	width: 25%;
 	height: 5%;
 	border-radius: 15px;
 	font-weight: 500;
@@ -596,7 +597,11 @@ form {
 	text-shadow: 1 0 violet;
 }
 
-#sellItem h3,
+#sellItem h3 {
+	text-align: center;
+	font-size: 22px;
+	font-weight: 900;
+}
 #sellItem h4 {
 	text-align: center;
 }
