@@ -16,7 +16,7 @@ const signup = async (event) => {
     });
     const data = await response.json();
     //console.log(data["user"]["id"]);
-    if (response.ok) {
+    if (data) {
       const walletResponse = await fetch("/api/wallet/createWallet", {
         // method: "POST",
         // body: JSON.stringify({}),
@@ -38,8 +38,8 @@ const signup = async (event) => {
         txtUserNameSU.focus();
         return;
       }
-
     } else {
+      alert(`Username already exist. Please try again.`);
       console.log(response.status);
     }
   }
