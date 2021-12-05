@@ -72,10 +72,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const userName = userData.username;
     if (req.session.user_id) {
       const userWallet = await wallet(req.session.user_id);
-      res.render("dashboard", { 
+      res.render("dashboard", {
         userName,
-        logged_in: req.session.logged_in, 
-        userWallet 
+        logged_in: req.session.logged_in,
+        userWallet,
       });
     } else {
       res.render("dashboard", { userName, logged_in: req.session.logged_in });
@@ -133,11 +133,16 @@ router.get("/sell", withAuth, async (req, res) => {
 
 router.get("/sellItem/:id", withAuth, async (req, res) => {
   try {
+    const userWallet = await wallet(req.session.user_id);
     const sellProductsData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }],
     });
     const product = sellProductsData.get({ plain: true });
-    res.render("sellItem", { product, logged_in: req.session.logged_in });
+    res.render("sellItem", {
+      userWallet,
+      product,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -194,7 +199,6 @@ router.get("/chart/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 //error page, having path issue
 
