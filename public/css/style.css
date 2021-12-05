@@ -498,9 +498,25 @@ form {
 }
 
 /* sell page */
+#sellItem {
+  padding: 6px;
+  line-height: 3;
+}
+
+#sellItem h3,
+#sellItem h4 {
+  text-align: center;
+}
+
+#sellItem input {
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .salesPage {
   color: white;
 }
+
 .salesHeader {
   margin-bottom: 1.2%;
   color: black;
