@@ -10,8 +10,9 @@
         {{else}}
             {{>productCard}}
             <a href="sellItem/{{id}}">
-              <button>Sell this!</button>
-            </a>
+            <button class="chart">Sell Item</button></a>
+            <a href="" data-id="{{id}}">
+              <button id="removeBtn" class="chart">Remove Item</button></a>
           </div>
         {{/if}}
     {{/each}}
@@ -27,7 +28,7 @@
         {{#if forSale}}
           {{>productCard}}
             <a href="sellItem/{{id}}">
-              <button>Change Price</button>
+              <button class="chart">Change Price</button>
             </a>
           </div>
         {{/if}}
@@ -45,6 +46,5 @@
 </div> 
 
 </div>
-{{!-- user info and maybe the products the they own --}}
 
-{{!-- purchase history if we have the time --}}
+<script src="/javaScript/delete.js"></script>
