@@ -15,7 +15,8 @@ const wallet = async (currentUser) => {
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }],
+      include: [{ model: Category}, {model: User}],
+      // include: [{ model: User}],
     });
     const products = productData.map((product) => product.get({ plain: true }));
     if (req.session.user_id) {

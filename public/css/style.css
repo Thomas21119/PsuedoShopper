@@ -207,8 +207,8 @@ h1 {
 }
 
 header {
-	width: 100%;
-	height: 20%;
+	width: 100vw;
+	/* height: 20%; */
 	display: flex;
 	flex-direction: column;
 	background-color: black;
@@ -217,27 +217,31 @@ header {
 
 .branding {
 	display: flex;
-	height: 70%;
+	height: 130px;
 	align-items: center;
+	width: 90vw;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
 }
 
 .navbar-brand {
-	width: 40%;
+	flex: 1 30%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	/* margin-left: 25px; */
 }
 
 .navbar-brand-name {
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	/* width: 49%; */
-	font-size: 32px;
+	flex: 1;
+	font-size: 40px;
 	font-weight: bold;
 	color: violet;
 	letter-spacing: 5px;
+	margin-right: 150px;
 }
 
 .logo {
@@ -249,7 +253,7 @@ header {
 
 .navbar {
 	width: 100%;
-	height: 40%;
+	height: 35px;
 	text-align: -webkit-center;
 }
 
@@ -268,6 +272,7 @@ header {
 
 .nav-link {
 	font-weight: 500;
+	font-size: 20px;
 }
 
 .nav-link:hover {
@@ -292,6 +297,11 @@ form {
 	justify-content: space-evenly;
 	padding-bottom: 25px;
 }
+.dashboard-header {
+	margin-bottom: 50px;
+	font-weight: 900;
+	font-size: 30px;
+}
 
 /* salesPage */
 .salesPage {
@@ -300,44 +310,52 @@ form {
 	width: 100%;
 	height: fit-content;
 	justify-content: space-evenly;
+	color: white;
+	flex-direction: column;
+	align-content: center;
 }
 
 #allAvailable {
-	font-size: 150%;
+	font-size: 30px;
 	font-weight: 900;
 	margin-bottom: 3%;
 	color: black;
+	text-decoration: underline;
+	text-align: center;
 }
 
 .salesPage .container {
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
-	height: 100%;
+	width: 90vw;
+	/* height: 60vw; */
 	justify-content: space-evenly;
 }
 
 .salesPage .newCard {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 70%);
+	background-color: rgb(238 130 238 / 39%);
 	width: 18%;
 	height: 20vh;
-	margin-bottom: 5%;
-	padding: 2.5%;
+	margin-bottom: 2%;
+	padding-bottom: 1%;
 	border: 3px solid black;
-	border-radius: 20px;
-	transition: background-color 0.5s ease-in-out;
+	border-radius: 25px;
+	transition: background-color 0.3s ease-in-out;
+	padding-top: 1%;
+	color: black;
 }
 
 .salesPage .newCard:hover {
 	background-color: rgba(0, 0, 0, 100%);
+	color: violet;
 }
 
 .salesPage .newCard h2 {
-	font-size: 20px;
+	font-size: 26px;
 	font-weight: 500;
 }
 
@@ -360,6 +378,25 @@ form {
 }
 
 .btnBuy:hover {
+	background-color: violet;
+	color: black;
+	font-size: 17px;
+}
+
+.btnSell {
+	width: 100%;
+	height: 5%;
+	border-radius: 15px;
+	font-weight: 500;
+}
+
+.btnSell:hover {
+	background-color: violet;
+	color: black;
+	font-size: 17px;
+}
+
+.btnPrice:hover {
 	background-color: violet;
 	color: black;
 	font-size: 17px;
@@ -530,13 +567,18 @@ form {
 	padding: 10px;
 }
 
-.salesPage {
-	color: white;
-}
-
 .salesHeader {
 	margin-bottom: 1.2%;
 	color: black;
+	text-decoration: underline;
+	font-weight: 700;
+	text-align: center;
+}
+
+.salesText {
+	margin-bottom: 15px;
+	color: red;
+	text-align: center;
 }
 
 /* Sales Chart Page */
@@ -564,7 +606,7 @@ form {
 	height: 100%;
 }
 
-@media screen and (min-width: 325px) {
+/* @media screen and (min-width: 325px) {
 	.salesPage .newCard {
 		width: 80%;
 	}
@@ -596,7 +638,6 @@ form {
 	.login-signup button {
 		width: 150%;
 		height: 2rem;
-		/* border-radius: 10px; */
 	}
 
 	.navbar-brand-name {
@@ -616,7 +657,6 @@ form {
 	}
 
 	.login-signup form {
-		/* height: 70%; */
 		width: 67%;
 	}
 
@@ -646,4 +686,4 @@ form {
 	.salesPage .newCard {
 		width: 18%;
 	}
-}
+} */
