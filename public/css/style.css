@@ -542,6 +542,16 @@ header {
   height: 100%;
 }
 
+/* createNewItems */
+
+.createNewItems .form-group {
+  width: 90%;
+}
+
+.createNewItems .btnSell {
+  width: 50%;
+}
+
 @media screen and (min-width: 768px) {
   .salesPage .newCard {
     width: 40%;

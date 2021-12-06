@@ -17,7 +17,6 @@ const sell = async () => {
     if (!userSell.ok) {
       return;
     }
-    location.reload();
     window.location.replace("/dashboard");
   } catch (err) {
     console.log(err);
