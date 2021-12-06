@@ -4,7 +4,7 @@ const sell = async () => {
     const price = document.querySelector("#newItemPrice").value.trim();
     console.log("sending info", id, price);
 
-    const userBuy = await fetch(`/api/products/forSale`, {
+    const userSell = await fetch(`/api/products/forSale`, {
       method: "PUT",
       body: JSON.stringify({
         price,
@@ -14,11 +14,11 @@ const sell = async () => {
         "Content-Type": "application/json",
       },
     });
-    if (!userBuy.ok) {
+    if (!userSell.ok) {
       return;
     }
     location.reload();
-        window.location.replace("/dashboard");
+    window.location.replace("/dashboard");
   } catch (err) {
     console.log(err);
   }
