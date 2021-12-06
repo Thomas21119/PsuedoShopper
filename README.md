@@ -94,7 +94,5 @@ From the modern browser of your choice, visit:
 ## Screenshots 
 ![Psuedoshopper](./public/images/homepage.png)
 ![Psuedoshopper](./public/images/signuppage.png)
-![Psuedoshopper](./public/images/productpage.png)
+![Psuedoshopper](./public/images/dashboard.png)
 ![Psuedoshopper](./public/images/walletpage.png)
-![Psuedoshopper](./public/images/dashboardpage.png)
-
