@@ -74,7 +74,8 @@ STEP 3
 From your terminal, run:
 
     3.1 npm i
-    3.2 npm run seed
+    3.2 node seeds/index.js
+    3.3 node server.js
 
 STEP 4
 
@@ -91,5 +92,9 @@ From the modern browser of your choice, visit:
 
 
 ## Screenshots 
-![Psuedoshopper](./public/images/)
+![Psuedoshopper](./public/images/homepage.png)
+![Psuedoshopper](./public/images/signuppage.png)
+![Psuedoshopper](./public/images/productpage.png)
+![Psuedoshopper](./public/images/walletpage.png)
+![Psuedoshopper](./public/images/dashboardpage.png)
 
