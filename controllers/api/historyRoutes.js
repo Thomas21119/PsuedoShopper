@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { History } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+//finds the sales history of a product
 router.get("/:id", async (req, res) => {
   try {
     const historyData = await History.findAll({

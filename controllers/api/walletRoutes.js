@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Wallet } = require("../../models");
 
+//creates a wallet for new user
 router.post("/createWallet", async (req, res) => {
   try {
     const userWallet = await Wallet.create({
@@ -13,6 +14,7 @@ router.post("/createWallet", async (req, res) => {
   }
 });
 
+//removes money from wallet based on cost
 router.put("/walletBuy", async (req, res) => {
   const buyersWalletData = await Wallet.findOne({
     where: { user_id: req.session.user_id },
@@ -40,6 +42,7 @@ router.put("/walletBuy", async (req, res) => {
   res.status(200).json(buyersWallet);
 });
 
+//adds credits to wallet based on owner of the product being purchase
 router.put("/walletSell", async (req, res) => {
   const sellersWalletData = await Wallet.findOne({
     where: { user_id: req.body.currentOwner },
@@ -62,6 +65,7 @@ router.put("/walletSell", async (req, res) => {
   res.status(200).json(sellersWallet);
 });
 
+// adds credits to wallet based on current user
 router.put("/walletTopUp", async (req, res) => {
   try {
     const walletData = await Wallet.findOne({

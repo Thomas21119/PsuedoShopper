@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const path = require('path');
+const path = require("path");
 const withAuth = require("../utils/auth");
 const { Product, User, Wallet, Category, History } = require("../models");
 
+//a function that gets the user wallet so we can populate the wallet: on every page
 const wallet = async (currentUser) => {
   const userWallet = await Wallet.findOne({
     where: {
@@ -13,11 +14,11 @@ const wallet = async (currentUser) => {
   return currentWallet;
 };
 
+//route to front page with all products currently for sale
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category}, {model: User}],
-      // include: [{ model: User}],
+      include: [{ model: Category }, { model: User }],
     });
     const products = productData.map((product) => product.get({ plain: true }));
     if (req.session.user_id) {
@@ -38,6 +39,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// user gets sent to a page that allows them to signup
 router.get("/signup", async (req, res) => {
   try {
     if (req.session.user_id) {
@@ -51,6 +53,7 @@ router.get("/signup", async (req, res) => {
   }
 });
 
+//user gets sent to a page that allows them to login
 router.get("/login", async (req, res) => {
   try {
     if (req.session.user_id) {
@@ -64,6 +67,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
+//user goes to a page that lists their items and allow them to sell
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -73,12 +77,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
     const userName = userData.username;
 
-        const userProductsData = await Product.findAll({
-          include: [{ model: Category }],
-          where: { user_id: req.session.user_id },
-        });
-        const product = userProductsData.map((Data) => Data.get({ plain: true }));
-   
+    const userProductsData = await Product.findAll({
+      include: [{ model: Category }],
+      where: { user_id: req.session.user_id },
+    });
+    const product = userProductsData.map((Data) => Data.get({ plain: true }));
+
     if (req.session.user_id) {
       const userWallet = await wallet(req.session.user_id);
       res.render("dashboard", {
@@ -95,6 +99,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+//sends user to a page that allows them to top up their wallet
 router.get("/wallet", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
@@ -104,6 +109,7 @@ router.get("/wallet", withAuth, async (req, res) => {
   }
 });
 
+//sends user to a page that allows them to buy an item
 router.get("/product/:id", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
@@ -122,6 +128,7 @@ router.get("/product/:id", withAuth, async (req, res) => {
   }
 });
 
+//sends user to a page that allows them to create a new item to sell
 router.get("/sell", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
@@ -141,6 +148,7 @@ router.get("/sell", withAuth, async (req, res) => {
   }
 });
 
+//sends user to a page that they can set a price and put it up for sale
 router.get("/sellItem/:id", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
@@ -158,6 +166,7 @@ router.get("/sellItem/:id", withAuth, async (req, res) => {
   }
 });
 
+//after the user has purchased a product this page is shown
 router.get("/purchase/:id", withAuth, async (req, res) => {
   try {
     const userWallet = await wallet(req.session.user_id);
@@ -177,6 +186,7 @@ router.get("/purchase/:id", withAuth, async (req, res) => {
   }
 });
 
+//sends user to the sales history of the product
 router.get("/chart/:id", async (req, res) => {
   try {
     const historyData = await History.findAll({
@@ -211,9 +221,9 @@ router.get("/chart/:id", async (req, res) => {
 });
 
 // custom 404 error page
-router.get('/:other', (req, res)=> {
+router.get("/:other", (req, res) => {
   //   res.send('404 page here')
-  const index = path.join(__dirname, '/', '../public/html', 'customerror.html' );
+  const index = path.join(__dirname, "/", "../public/html", "customerror.html");
   res.sendFile(index);
 });
 
