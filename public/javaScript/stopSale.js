@@ -1,17 +1,15 @@
-const { response } = require("express");
-
 const stopSale = document.querySelector("#removeFS");
 
 const removeFromSale = async (event) => {
   event.preventDefault();
   try {
+    console.log("testing");
     const id = document.querySelector("#product_id").value.trim();
 
     const userChange = await fetch(`/api/products/notForSale`, {
       method: "PUT",
       body: JSON.stringify({
         id,
-        forSale: false,
       }),
       headers: {
         "Content-Type": "application/json",
