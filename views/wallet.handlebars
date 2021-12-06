@@ -1,11 +1,9 @@
 <div class="walletRoute">
-  
 
   <h3> Top Up: </h3>
   <form id="topUpSubmit">
+    <h1>Current Credits ${{userWallet.credits}}</h1>
     <div class="form-group">
-      <h1>Current Credits $ {{userWallet.credits}}</h1>
-      <br>
       <label for="topUpAmount" class="text-color">
         How Much Would you like to top up:
       </label>
@@ -13,8 +11,9 @@
     </div>
     <div class="form-group">
       <label for="cardNumber" class="text-color">Card Number:</label>
-      <input id="cardNumber" type="number" maxlength="16"/><br>
-      <small id='cardHelp' class='form-text text-muted'>Your card number should be 16 characters in length.</small>
+      <input id="cardNumber" type="number" maxlength="16" />
+      <small id="cardHelp" class="form-text text-muted">**Your card number
+        should be 16 characters in length.</small>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-color">

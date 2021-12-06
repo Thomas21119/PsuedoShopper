@@ -7,8 +7,9 @@
   {{#if (enough_credits userWallet.credits product.cost)}}
     <button id="buyBtn">Buy it</button>
   {{else}}
+    <a href="/wallet">
     <p>Not enough money</p>
-    <a href="/wallet"></a>
+    </a>
   {{/if}}
 </article>
-<script src="/javascript/buy.js"></script>
+<script src="/javaScript/buy.js"></script>
