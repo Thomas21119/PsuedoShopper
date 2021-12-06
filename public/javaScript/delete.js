@@ -32,7 +32,7 @@ const eventHandler = async (event) => {
     }
   }
 };
-const removeBtn = document.querySelectorAll(".removeBtn");
+
 for (let i = 0; i < removeBtn.length; i++) {
   removeBtn[i].addEventListener("click", eventHandler);
 }

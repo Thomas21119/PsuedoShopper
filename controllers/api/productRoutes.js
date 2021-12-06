@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Product } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+//changes the owner of the product and removes it from being sold
 router.put("/buy/:id", withAuth, async (req, res) => {
   try {
     const productPurchased = await Product.findByPk(req.params.id);
@@ -22,6 +23,7 @@ router.put("/buy/:id", withAuth, async (req, res) => {
   }
 });
 
+//changes the price of the product and puts it up for sale
 router.put("/forSale", withAuth, async (req, res) => {
   try {
     const productSelling = await Product.findByPk(req.body.id);
@@ -37,6 +39,7 @@ router.put("/forSale", withAuth, async (req, res) => {
   }
 });
 
+//remove the product from sale
 router.put("/notForSale", withAuth, async (req, res) => {
   try {
     const productChange = await Product.findByPk(req.body.id);
@@ -51,6 +54,7 @@ router.put("/notForSale", withAuth, async (req, res) => {
   }
 });
 
+//creates a new product, including price, forSale defaults to true
 router.post("/newSale", withAuth, async (req, res) => {
   try {
     const newItemCost = req.body.itemCost;
@@ -67,6 +71,7 @@ router.post("/newSale", withAuth, async (req, res) => {
   }
 });
 
+// withdraw/delete an item from the database
 router.delete("/remove/:id", withAuth, async (req, res) => {
   try {
     const prod_id = await Product.findByPk(req.params.id);
@@ -76,25 +81,6 @@ router.delete("/remove/:id", withAuth, async (req, res) => {
     }
     await prod_id.destroy();
     return;
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-router.post("/update/:id", withAuth, async (req, res) => {
-  try {
-    const productWithdraw = await Product.findByPk(req.params.id);
-
-    if (!productWithdraw) {
-      res.status(400).json({ message: "cant find the id of this product" });
-      return;
-    }
-    console.log(req.session.id);
-    // productWithdraw.user_id = req.session.user_id;
-    // productWithdraw.forSale = false;
-
-    await productWithdraw.save();
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

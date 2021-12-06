@@ -15,14 +15,8 @@ const signup = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     const data = await response.json();
-    //console.log(data["user"]["id"]);
     if (data) {
       const walletResponse = await fetch("/api/wallet/createWallet", {
-        // method: "POST",
-        // body: JSON.stringify({}),
-        // headers: { 
-        //   "Content-Type": "application/json" 
-        // },
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,8 +27,8 @@ const signup = async (event) => {
         window.location.replace("/dashboard");
       } else {
         alert(`Username already exist. Please try again.`);
-        txtUserNameSU.value = '';
-        txtPasswordSU.value = '';
+        txtUserNameSU.value = "";
+        txtPasswordSU.value = "";
         txtUserNameSU.focus();
         return;
       }
