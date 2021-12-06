@@ -1,605 +1,724 @@
 /* global selector */
 * {
-	font-family: "Red Hat Display", sans-serif;
-	font-size: 18px;
-	font-weight: 400;
-	transition: 500ms;
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  transition: 500ms;
+}
+
+form {
+  margin: 0 auto;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 /* header */
 body,
 html {
-	background-image: url(../images/Website-Background-scaled.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	top: 0;
-	left: 0;
-	height: 100vh;
-	width: 100vw;
-	z-index: -100;
+  background-image: url(../images/Website-Background-scaled.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -100;
 }
 
 h1 {
-	font-size: 24px;
-	font-weight: 900;
-	letter-spacing: 5px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 5px;
 }
 
 header {
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	background-color: black;
-	margin-bottom: 2%;
+  width: 100vw;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  margin-bottom: 2%;
 }
 
 .branding {
-	display: flex;
-	height: 130px;
-	align-items: center;
-	width: 90vw;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
+  display: flex;
+  height: 70%;
+  align-items: center;
+  width: 100vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
 .navbar-brand {
-	flex: 1 30%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
+  height: 100%;
+  width: max-content;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-brand-name {
-	display: flex;
-	justify-content: center;
-	flex: 1;
-	font-size: 40px;
-	font-weight: bold;
-	color: violet;
-	letter-spacing: 5px;
-	margin-right: 150px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: violet;
+  letter-spacing: 5px;
 }
 
 .logo {
-	height: 100%;
-	position: relative;
-	position: left;
-	background-color: none;
+  height: 100%;
+  position: relative;
+  position: left;
+  background-color: none;
 }
 
 .navbar {
-	width: 100%;
-	height: 35px;
-	text-align: -webkit-center;
+  width: 100%;
+  height: 30%;
+  text-align: -webkit-center;
 }
 
 .navbar ul {
-	display: flex;
-	width: 70%;
-	height: 100%;
-	align-items: center;
-	font-size: 24px;
-	color: white;
+  display: flex;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 18px;
+  color: white;
 }
 
 .nav-item {
-	width: 33.33%;
+  width: 24%;
 }
 
 .nav-link {
-	font-weight: 500;
-	font-size: 20px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .nav-link:hover {
-	color: violet;
-	text-decoration: underline;
+  color: violet;
+  text-decoration: underline;
 }
 
 .nav-image {
-	width: 50px;
-	text-align: center;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 1px black solid;
-	border-radius: 25px;
+  width: 60%;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px black solid;
+  border-radius: 25px;
 }
 
 .nav-image:hover {
-	font-size: 150%;
-}
-
-form {
-	margin: 0 auto;
-	width: 50%;
-	border: 2px solid black;
-	border-radius: 20px;
+  font-size: 150%;
 }
 
 /* dashboard*/
 .dashboard {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	height: fit-content;
-	justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .dashboard-header {
-	margin-bottom: 50px;
-	font-weight: 900;
-	font-size: 30px;
+  margin-bottom: 5%;
+  font-weight: 900;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard .container .nav-image {
+  margin-bottom: 5%;
 }
 
 /* salesPage */
 .salesPage {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	height: fit-content;
-	justify-content: space-evenly;
-	color: white;
-	flex-direction: column;
-	align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-evenly;
+  color: white;
+  flex-direction: column;
+  align-content: center;
 }
 
 #allAvailable {
-	font-size: 30px;
-	font-weight: 900;
-	margin-bottom: 1%;
-	color: black;
-	text-decoration: underline;
-	text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 5%;
+  color: black;
+  text-decoration: underline;
+  text-align: center;
 }
 
 .salesPage .container {
-	display: flex;
-	flex-wrap: wrap;
-	width: 90vw;
-	min-height: 215px;
-	align-items: center;
-	justify-content: center;
-	flex: 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  min-height: 215px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1 0;
 }
 
 .salesPage .newCard {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	background-color: rgb(238 130 238 / 39%);
-	width: 15%;
-	height: 20vh;
-	padding-bottom: 1%;
-	border: 3px solid black;
-	border-radius: 25px;
-	transition: background-color 0.3s ease-in-out;
-	padding-top: 1%;
-	color: black;
-	margin: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(238 130 238 / 39%);
+  width: 60%;
+  height: 20vh;
+  padding-bottom: 1%;
+  border: 3px solid black;
+  border-radius: 25px;
+  transition: background-color 0.3s ease-in-out;
+  padding-top: 1%;
+  color: black;
+  margin-bottom: 5%;
 }
 
 .salesPage .newCard:hover {
-	background-color: rgba(0, 0, 0, 100%);
-	color: violet;
+  background-color: rgba(0, 0, 0, 100%);
+  color: violet;
 }
 
 .salesPage .newCard h2 {
-	font-size: 24px;
-	font-weight: 900;
-	text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
 }
 
 .salesPage .newCard p {
-	font-size: 14px;
-	font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .salesPage .newCard a {
-	width: 80%;
-	height: 2rem;
+  width: 80%;
+  height: 2rem;
 }
 
 .newCard a button {
-	width: 100%;
-	height: 100%;
-	border-radius: 20px;
-	font-weight: 500;
-	font-size: 14px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .chart:hover {
-	background-color: violet;
-	color: black;
-	font-size: 17px;
+  background-color: violet;
+  color: black;
+  font-size: 17px;
 }
 
 .btnBuy:hover {
-	background-color: violet;
-	color: black;
-	font-size: 17px;
+  background-color: violet;
+  color: black;
+  font-size: 17px;
 }
 
 .btnSell {
-	width: 25%;
-	height: 5%;
-	border-radius: 15px;
-	font-weight: 500;
+  width: 25%;
+  height: 5%;
+  border-radius: 15px;
+  font-weight: 500;
 }
 
 .btnSell:hover {
-	background-color: violet;
-	color: black;
-	font-size: 17px;
+  background-color: violet;
+  color: black;
+  font-size: 17px;
 }
 
 .btnPrice:hover {
-	background-color: violet;
-	color: black;
-	font-size: 17px;
+  background-color: violet;
+  color: black;
+  font-size: 17px;
 }
 
 /* wallet route */
 .walletRoute {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .walletRoute h1 {
-	font-size: 24px;
-	margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5%;
 }
 
 .walletRoute h3 {
-	font-size: 32px;
-	font-weight: bold;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5%;
 }
 
 .walletRoute form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-	padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 5%;
+  padding: 2%;
 }
 
 .walletRoute .form-group {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	width: 100%;
-	flex-direction: column;
-	padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .walletRoute label {
-	width: 50%;
-	line-height: 1.5rem;
-	text-align: center;
+  width: 90%;
+  line-height: 1.5rem;
+  text-align: center;
+  margin: 2%;
 }
 
 .walletRoute input {
-	width: 40%;
-	height: 2rem;
+  width: 80%;
+  height: 2rem;
+  text-align: center;
+}
+
+#cardHelp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
 }
 
 .walletRoute button {
-	display: flex;
-	width: 25%;
-	justify-content: center;
-	padding: 2%;
-	border-radius: 20px;
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  padding: 2%;
+  border-radius: 20px;
 }
 
+/* login */
 .login-signup form {
-	display: flex;
-	height: 50%;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	width: 50vw;
+  display: flex;
+  height: 50%;
+  margin-top: 5%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
 }
 
 .login-signup .form-group {
-	display: flex;
-	height: 4%;
-	width: 45vw;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  height: 20%;
+  width: 80%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .login-signup label {
-	font-size: 15px;
-	line-height: 1.5rem;
-	text-align: center;
-	font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 .login-signup input {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	height: 2.5rem;
-	text-align: center;
-	border-radius: 10px;
-	padding: 10px;
-	margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 2.5rem;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 5px;
 }
 
 .login-signup .btn-group {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  text-align: center;
 }
+.login-signup .btn-group a {
+  transition: none;
+  width: 40%;
+}
+
 .login-signup .btn-group p {
-	transition: none;
+  width: 40%;
 }
 
 .login-signup .btn-group .linklogin:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .loginCont {
-	display: flex;
-	width: 25%;
+  display: flex;
+  width: 50%;
 }
 
 .login-signup button {
-	width: 150%;
-	height: 2.3rem;
-	border-radius: 20px;
+  width: 150%;
+  height: 2.3rem;
+  border-radius: 20px;
 }
 
 .login-signup button:hover {
-	background-color: violet;
+  background-color: violet;
 }
 
 .login-signup .btn-group a {
-	font-size: 18px;
-	font-weight: 400;
-	transition: none;
+  font-size: 18px;
+  font-weight: 400;
+  transition: none;
 }
 
 .login-signup .btn-group a:hover {
-	text-shadow: 0 0 black;
-	text-decoration: underline;
+  text-shadow: 0 0 black;
+  text-decoration: underline;
 }
 
 .linkLogin:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
+
 /* buy page */
 .productCard {
-	border: 2px solid black;
-	border-radius: 20px;
-	width: 40%;
-	margin: 0 auto;
-	text-align: center;
-	line-height: 2;
-	padding: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  text-align: center;
+  line-height: 2;
+  padding: 2%;
+  background-color: rgb(238 130 238 / 39%);
 }
 
 .productBuy-header {
-	font-size: 26px;
-	font-weight: 500;
+  font-size: 26px;
+  font-weight: 500;
 }
 
 .productCard button {
-	width: 25%;
-	padding: 2%;
-	border-radius: 20px;
+  width: 70%;
+  padding: 2%;
+  border-radius: 20px;
 }
 
 /* sell page */
 #sellItem {
-	padding: 6px;
-	line-height: 3;
+  padding: 2%;
+  line-height: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sellItem-back:hover {
-	text-decoration: underline;
-	text-shadow: 1 0 violet;
+  text-decoration: underline;
+  text-shadow: 1 0 violet;
 }
 
 #sellItem h3 {
-	text-align: center;
-	font-size: 22px;
-	font-weight: 900;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
 }
 #sellItem h4 {
-	text-align: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1rem;
 }
 
-#sellItem input {
-	border-radius: 10px;
-	padding: 10px;
+#sellItem .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sellItem .form-group label {
+  line-height: 1.5rem;
+  margin: 2%;
+  text-align: center;
+}
+
+#sellItem .form-group input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5rem;
+  margin: 2%;
+  width: 80%;
+  border-radius: 10px;
+  padding: 2%;
+  text-align: center;
+}
+
+#sellItem .form-group .btnSell {
+  width: 80%;
 }
 
 .salesHeader {
-	margin-bottom: 1%;
-	color: black;
-	text-decoration: underline;
-	font-weight: 700;
-	text-align: center;
+  margin-bottom: 1%;
+  color: black;
+  text-decoration: underline;
+  font-weight: 700;
+  text-align: center;
 }
 
 .salesText {
-	margin-bottom: 15px;
-	color: red;
-	text-align: center;
-	min-height: 215px;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	flex-direction: column;
+  margin-bottom: 15px;
+  color: red;
+  text-align: center;
+  min-height: 215px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 /* Sales Chart Page */
 .chartHead {
-	text-align: center;
-	margin-bottom: 2%;
-	font-weight: 400;
-	font-size: 18px;
+  text-align: center;
+  margin-bottom: 2%;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .charthead u {
-	font-weight: 900;
+  font-weight: 900;
 }
 
 .chart-main-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .chart-container {
-	position: relative;
-	height: 100px;
-	width: 50vw;
-	margin: 0 auto;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .myChart {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-@media screen and (max-width: 768px) {
-	.navbar-brand-name {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		width: 15%;
-		font-size: 20px;
-		font-weight: bold;
-		color: violet;
-	}
+@media screen and (min-width: 768px) {
+  .salesPage .newCard {
+    width: 40%;
+  }
 
-	.login-signup form {
-		width: 80%;
-	}
+  .dashboard .container {
+    display: flex;
+    flex-direction: row;
+  }
 
-	.login-signup label {
-		font-size: 18px;
-		line-height: 1.5rem;
-		text-align: left;
-		font-weight: 500;
-	}
+  .nav-image {
+    width: 40%;
+  }
 
-	.salesPage .newCard {
-		width: 90%;
-	}
+  .login-signup form {
+    width: 60%;
+  }
 
-	.navbar-brand {
-		flex: 1 30%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  .navbar-brand-name {
+    font-size: 40px;
+  }
 
-	.logo {
-		height: 50%;
-		display: flex;
-		align-items: center;
-	}
+  .productCard {
+    width: 40%;
+  }
+}
 
-	.nav-link {
-		font-weight: 500;
-		font-size: 12px;
-	}
-	.login-signup .form-group {
-		display: flex;
-		height: 6%;
-		width: 55vw;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+@media screen and (min-width: 1200px) {
+  .dashboard .salesPage .newCard {
+    width: 30%;
+  }
 
-	.login-signup button {
-		width: 150%;
-		height: 2.3rem;
-		border-radius: 20px;
-	}
-	.loginCont {
-		display: flex;
-		width: 50%;
-	}
+  .salesPage .newCard {
+    width: 20%;
+  }
 
-	.walletRoute form {
-		width: 80vw;
-	}
+  .nav-image {
+    width: 30%;
+  }
 
-	.walletRoute h1 {
-		font-size: 20px;
-		margin-bottom: 5%;
-	}
+  .navbar-brand-name {
+    font-size: 48px;
+  }
 
-	.walletRoute input {
-		width: 60%;
-		height: 2rem;
-	}
+  .productCard {
+    width: 30%;
+  }
+}
 
-	.productCard {
-		width: 80%;
-		padding: 20px;
-	}
+/* @media screen and (max-width: 768px) {
+  .navbar-brand-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    color: violet;
+  }
 
-	.productCard button {
-		width: 50%;
-		padding: 2%;
-		border-radius: 20px;
-	}
+  .login-signup form {
+    width: 80%;
+  }
 
-	#sellItem {
-		width: 80%;
-	}
+  .login-signup label {
+    font-size: 18px;
+    line-height: 1.5rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .salesPage .newCard {
+    width: 80%;
+  }
+
+  .navbar-brand {
+    flex: 1 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    height: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .login-signup .form-group {
+    display: flex;
+    height: 6%;
+    width: 55vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-signup button {
+    width: 150%;
+    height: 2.3rem;
+    border-radius: 20px;
+  }
+  .loginCont {
+    display: flex;
+    width: 50%;
+  }
+
+  .walletRoute form {
+    width: 80vw;
+  }
+
+  .walletRoute h1 {
+    font-size: 20px;
+    margin-bottom: 5%;
+  }
+
+  .walletRoute input {
+    width: 60%;
+    height: 2rem;
+  }
+
+  .productCard {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .productCard button {
+    width: 50%;
+    padding: 2%;
+    border-radius: 20px;
+  }
+
+  #sellItem {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 325px) {
-	.salesPage .newCard {
-		width: 80%;
-	}
+  .salesPage .newCard {
+    width: 80%;
+  }
 
-	.salesPage .newCard h2,
-	#allAvailable,
-	.nav-link {
-		font-size: 18px;
-	}
+  .salesPage .newCard h2,
+  #allAvailable,
+  .nav-link {
+    font-size: 18px;
+  }
 
-	.logo {
-		height: 75%;
-	}
+  .logo {
+    height: 75%;
+  }
 
-	.login-signup input {
-		width: 150%;
-		height: 2rem;
-		text-align: left;
-		border-radius: 10px;
-	}
+  .login-signup input {
+    width: 150%;
+    height: 2rem;
+    text-align: left;
+    border-radius: 10px;
+  }
 
-	.login-signup label {
-		font-size: 13px;
-		line-height: 1.5rem;
-		text-align: center;
-		font-weight: 500;
-	}
+  .login-signup label {
+    font-size: 13px;
+    line-height: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+  }
 
-	.login-signup button {
-		width: 150%;
-		height: 2rem;
-	}
+  .login-signup button {
+    width: 150%;
+    height: 2rem;
+  }
 
-	.navbar-brand-name {
-		font-size: 20px;
-	}
-}
+  .navbar-brand-name {
+    font-size: 20px;
+  }
+} */
