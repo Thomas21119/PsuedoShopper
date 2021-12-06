@@ -1,20 +1,21 @@
-const sell = async () => {
-  try {
-    const id = document.querySelector("#product_id").value.trim();
-    const price = document.querySelector("#newItemPrice").value.trim();
-    console.log("sending info", id, price);
+const stopSale = document.querySelector("#removeFS");
 
-    const userSell = await fetch(`/api/products/forSale`, {
+const removeFromSale = async (event) => {
+  event.preventDefault();
+  try {
+    console.log("testing");
+    const id = document.querySelector("#product_id").value.trim();
+
+    const userChange = await fetch(`/api/products/notForSale`, {
       method: "PUT",
       body: JSON.stringify({
-        price,
         id,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    if (!userSell.ok) {
+    if (!userChange) {
       return;
     }
     location.reload();
@@ -24,4 +25,4 @@ const sell = async () => {
   }
 };
 
-document.querySelector("#sellItem").addEventListener("submit", sell);
+stopSale.addEventListener("click", removeFromSale);
