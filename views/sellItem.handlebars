@@ -12,8 +12,15 @@
         <input id="newItemPrice" name="newItemPrice" type="number" min="1" value="{{product.cost}}"/>
       </div>
       <div class="form-group">
+      {{#if product.forSale}}
+        <label for="sellBtn">Change the price for this item</label>
+        <button class="btnSell" type="submit">Change</button>
+        <button class="btnSell" id="removeFS">Stop Sale</button>
+      {{else}}
         <label for="sellBtn">Put This Item up for sale</label>
-        <button class="btnSell" type="submit">Save</button>
+        <button class="btnSell" type="submit">Sell</button>
+      {{/if}}
+        
       </div>
 </form>
 <script src="/javaScript/sell.js"></script>
