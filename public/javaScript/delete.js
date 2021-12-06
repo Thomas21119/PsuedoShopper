@@ -1,10 +1,9 @@
-const removeBtn = document.querySelector("#removeBtn");
+const removeBtn = document.querySelectorAll(".removeBtn");
 const unSellBtn = document.querySelector("#unsellBtn");
 const theCard = document.querySelector(".newCard");
 
-const eventHandler = async () => {
-  const cardId = removeBtn.parentElement.getAttribute("data-id");
-
+const eventHandler = async (event) => {
+  const cardId = event.target.parentElement.getAttribute("data-id");
   if (cardId) {
     const confirmBox = prompt("Confirm delete item? (Yes/No)");
 
@@ -33,5 +32,7 @@ const eventHandler = async () => {
     }
   }
 };
-
-removeBtn.addEventListener("click", eventHandler);
+const removeBtn = document.querySelectorAll(".removeBtn");
+for (let i = 0; i < removeBtn.length; i++) {
+  removeBtn[i].addEventListener("click", eventHandler);
+}
